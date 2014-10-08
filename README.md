@@ -2,7 +2,9 @@
 
 `LNNotificationsUI` is a framework for displaying notifications similar to Apple's iOS 7 and iOS 8 notifications. It is meant to complement the native look and feel, by providing a pixel-accurate (as much as possible) recreation of the notifications.
 
-<img src="./Screenshots/Presentation.png" height="676px"/><img src="./Screenshots/LNNotificationsUI.gif" height="676px"/>
+<img src="./Screenshots/Presentation.png"/>
+
+<img src="./Screenshots/LNNotificationsUI.gif"/>
 
 See a video [here](https://vimeo.com/105395794).
 
