@@ -8,6 +8,12 @@
 
 #import "LNNotification.h"
 
+@interface LNNotification ()
+
+@property (nonatomic, copy) NSString* appIdentifier;
+
+@end
+
 @implementation LNNotification
 
 + (BOOL)supportsSecureCoding
@@ -51,7 +57,7 @@
 		self.icon = icon;
 		self.date = date;
 		self.displaysWithRelativeDateFormatting = YES;
-//		self.alertAction = NSLocalizedString(@"View", @"");
+		self.alertAction = NSLocalizedString(@"View", @"");
 	}
 	
 	return self;
@@ -68,7 +74,8 @@
 		self.icon = [coder decodeObjectOfClass:[NSString class] forKey:@"icon"];
 		self.date = [coder decodeObjectOfClass:[NSString class] forKey:@"date"];
 		self.displaysWithRelativeDateFormatting = [coder decodeBoolForKey:@"displaysWithRelativeDate"];
-//		self.alertAction = [coder decodeObjectOfClass:[NSString class] forKey:@"alertAction"];
+		self.alertAction = [coder decodeObjectOfClass:[NSString class] forKey:@"alertAction"];
+		self.soundName = [coder decodeObjectOfClass:[NSString class] forKey:@"soundName"];
 	}
 	
 	return self;
@@ -81,13 +88,16 @@
 	[aCoder encodeObject:self.icon forKey:@"icon"];
 	[aCoder encodeObject:self.date forKey:@"date"];
 	[aCoder encodeBool:self.displaysWithRelativeDateFormatting forKey:@"displaysWithRelativeDate"];
-//	[aCoder encodeObject:self.alertAction forKey:@"alertAction"];
+	[aCoder encodeObject:self.soundName forKey:@"soundName"];
+	[aCoder encodeObject:self.alertAction forKey:@"alertAction"];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
 	LNNotification* copy = [[LNNotification allocWithZone:zone] initWithTitle:self.title message:self.message icon:self.icon date:self.date];
 	copy.displaysWithRelativeDateFormatting = self.displaysWithRelativeDateFormatting;
+	copy.alertAction = self.alertAction;
+	copy.soundName = self.soundName;
 	
 	return copy;
 }

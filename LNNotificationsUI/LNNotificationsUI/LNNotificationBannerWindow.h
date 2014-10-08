@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LNNotification.h"
+#import "LNNotificationCenter.h"
 
-@interface LNNotificationWindow : UIWindow
+@interface LNNotificationBannerWindow : UIWindow
 
 @property (nonatomic, readonly) BOOL isNotificationViewShown;
+
+- (instancetype)initWithFrame:(CGRect)frame style:(LNNotificationBannerStyle)bannerStyle;
 
 - (void)presentNotification:(LNNotification*)notification completionBlock:(void(^)())completionBlock;
 - (void)dismissNotificationViewWithCompletionBlock:(void(^)())completionBlock;

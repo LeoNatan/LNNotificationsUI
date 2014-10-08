@@ -26,6 +26,7 @@
 @property (nonatomic, copy) NSDate* date;
 @property (nonatomic) BOOL displaysWithRelativeDateFormatting;
 
-@property (nonatomic, copy) NSString* alertAction NS_UNAVAILABLE;
+@property (nonatomic, copy) NSString* soundName;
+@property (nonatomic, copy) NSString* alertAction;
 
 @end

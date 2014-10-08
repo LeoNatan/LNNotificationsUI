@@ -9,3 +9,5 @@
 #import <UIKit/UIKit.h>
 #import <LNNotificationsUI/LNNotification.h>
 #import <LNNotificationsUI/LNNotificationCenter.h>
+#import <LNNotificationsUI/LNNotificationAppSettings.h>
+#import <LNNotificationsUI/LNNotificationSettingsController.h>

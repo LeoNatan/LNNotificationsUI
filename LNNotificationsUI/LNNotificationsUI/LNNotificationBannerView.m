@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Leo Natan. All rights reserved.
 //
 
-#import "LNNotificationView.h"
+#import "LNNotificationBannerView.h"
 #import "LNNotification.h"
 
 static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 
-@implementation LNNotificationView
+@implementation LNNotificationBannerView
 {
 	UIImageView* _appIcon;
 	UILabel* _titleLabel;
@@ -24,6 +24,13 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+	[NSException raise:NSInternalInconsistencyException format:@"Must call initWithFrame:style:"];
+	
+	return nil;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(LNNotificationBannerStyle)style
+{
 	self = [super initWithFrame:frame];
 	
 	if(self)
@@ -32,7 +39,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		
 		self.backgroundColor = [UIColor clearColor];
 		
-		UIVisualEffectView* bgView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+		UIVisualEffectView* bgView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:style == LNNotificationBannerStyleDark ? UIBlurEffectStyleDark : UIBlurEffectStyleExtraLight]];
 		bgView.frame = self.bounds;
 		bgView.userInteractionEnabled = NO;
 		bgView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -64,14 +71,14 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		
 		_titleLabel = [UILabel new];
 		_titleLabel.font = [UIFont boldSystemFontOfSize:13];
-		_titleLabel.textColor = [UIColor whiteColor];
+		_titleLabel.textColor = style == LNNotificationBannerStyleDark ? [UIColor whiteColor] : [UIColor blackColor];
 		_titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		
 		[_notificationContentView addSubview:_titleLabel];
 		
 		_messageLabel = [UILabel new];
 		_messageLabel.font = [UIFont systemFontOfSize:13];
-		_messageLabel.textColor = [UIColor whiteColor];
+		_messageLabel.textColor = style == LNNotificationBannerStyleDark ? [UIColor whiteColor] : [UIColor blackColor];
 		_messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		_messageLabel.numberOfLines = 2;
 		
@@ -82,7 +89,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		
 		_dateLabel = [UILabel new];
 		_dateLabel.font = [UIFont systemFontOfSize:11];
-		_dateLabel.textColor = [UIColor whiteColor];
+		_dateLabel.textColor = style == LNNotificationBannerStyleDark ? [UIColor whiteColor] : [UIColor blackColor];
 		_dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		[_dateLabel setContentCompressionResistancePriority:1000 forAxis:UILayoutConstraintAxisHorizontal];
 		[_dateLabel setContentCompressionResistancePriority:1000 forAxis:UILayoutConstraintAxisVertical];

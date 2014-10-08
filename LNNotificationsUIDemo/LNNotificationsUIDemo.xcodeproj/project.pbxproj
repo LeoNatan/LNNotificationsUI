@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3936B7EB19B90366007A3F6B /* LNNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936B7EA19B90357007A3F6B /* LNNotificationsUI.framework */; };
+		3976DDC319CCBC1700053EEF /* LNNotificationsUIAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3976DDC219CCBC1700053EEF /* LNNotificationsUIAssets.xcassets */; };
+		39867B7E19E5E8D300664D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B66DBE19B9020500BED640 /* Main.storyboard */; };
 		39B66DB719B9020500BED640 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B66DB619B9020500BED640 /* main.m */; };
 		39B66DBA19B9020500BED640 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B66DB919B9020500BED640 /* AppDelegate.m */; };
 		39B66DBD19B9020500BED640 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B66DBC19B9020500BED640 /* ViewController.m */; };
-		39B66DC019B9020500BED640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B66DBE19B9020500BED640 /* Main.storyboard */; };
 		39B66DC219B9020500BED640 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B66DC119B9020500BED640 /* Images.xcassets */; };
+		39D646E719E5E4C60069C197 /* demo.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 39D646E619E5E4C60069C197 /* demo.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,10 +25,19 @@
 			remoteGlobalIDString = 39FC4F8319B8EFB400E45E37;
 			remoteInfo = LNNotificationsUI;
 		};
+		3976DDB719CCA72B00053EEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3936B7E519B90357007A3F6B /* LNNotificationsUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 39FC4F8219B8EFB400E45E37;
+			remoteInfo = LNNotificationsUI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3936B7E519B90357007A3F6B /* LNNotificationsUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNNotificationsUI.xcodeproj; path = ../LNNotificationsUI/LNNotificationsUI.xcodeproj; sourceTree = "<group>"; };
+		3976DDC219CCBC1700053EEF /* LNNotificationsUIAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LNNotificationsUIAssets.xcassets; path = ../LNNotificationsUI/LNNotificationsUIAssets.xcassets; sourceTree = "<group>"; };
+		39867B7C19E5E89200664D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39B66DB119B9020500BED640 /* LNNotificationsUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNNotificationsUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B66DB519B9020500BED640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39B66DB619B9020500BED640 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,8 +45,8 @@
 		39B66DB919B9020500BED640 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		39B66DBB19B9020500BED640 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		39B66DBC19B9020500BED640 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		39B66DBF19B9020500BED640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39B66DC119B9020500BED640 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		39D646E619E5E4C60069C197 /* demo.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = demo.aiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,7 @@
 		39B66DA819B9020500BED640 = {
 			isa = PBXGroup;
 			children = (
+				3976DDC219CCBC1700053EEF /* LNNotificationsUIAssets.xcassets */,
 				3936B7E519B90357007A3F6B /* LNNotificationsUI.xcodeproj */,
 				39B66DB319B9020500BED640 /* LNNotificationsUIDemo */,
 				39B66DB219B9020500BED640 /* Products */,
@@ -92,6 +104,7 @@
 		39B66DB419B9020500BED640 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				39D646E619E5E4C60069C197 /* demo.aiff */,
 				39B66DB519B9020500BED640 /* Info.plist */,
 				39B66DB619B9020500BED640 /* main.m */,
 			);
@@ -112,6 +125,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3976DDB819CCA72B00053EEF /* PBXTargetDependency */,
 			);
 			name = LNNotificationsUIDemo;
 			productName = LNNotificationsUIDemo;
@@ -171,8 +185,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B66DC019B9020500BED640 /* Main.storyboard in Resources */,
 				39B66DC219B9020500BED640 /* Images.xcassets in Resources */,
+				39D646E719E5E4C60069C197 /* demo.aiff in Resources */,
+				3976DDC319CCBC1700053EEF /* LNNotificationsUIAssets.xcassets in Resources */,
+				39867B7E19E5E8D300664D3C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,11 +207,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3976DDB819CCA72B00053EEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LNNotificationsUI;
+			targetProxy = 3976DDB719CCA72B00053EEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		39B66DBE19B9020500BED640 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				39B66DBF19B9020500BED640 /* Base */,
+				39867B7C19E5E89200664D3C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Leo Natan. All rights reserved.
 //
 
-#import "LNNotificationWindow.h"
+#import "LNNotificationBannerWindow.h"
 #import "LNNotification.h"
-#import "LNNotificationView.h"
+#import "LNNotificationBannerView.h"
+#import "LNNotificationCenter.h"
 
 static const NSTimeInterval LNNotificationAnimationDuration = 0.5;
 static const NSTimeInterval LNNotificationFullDuration = 5.0;
@@ -18,9 +19,9 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 
 extern NSString* const LNNotificationWasTappedNotification;
 
-@implementation LNNotificationWindow
+@implementation LNNotificationBannerWindow
 {
-	LNNotificationView* _notificationView;
+	LNNotificationBannerView* _notificationView;
 	UIView* _swipeView;
 	BOOL _notificationViewShown;
 	NSDate* _lastShowDate;
@@ -34,11 +35,16 @@ extern NSString* const LNNotificationWasTappedNotification;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+	return [self initWithFrame:frame style:LNNotificationBannerStyleDark];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(LNNotificationBannerStyle)bannerStyle
+{
 	self = [super initWithFrame:frame];
 	
 	if(self)
 	{
-		_notificationView = [[LNNotificationView alloc] initWithFrame:self.bounds];
+		_notificationView = [[LNNotificationBannerView alloc] initWithFrame:self.bounds style:bannerStyle];
 		_notificationView.translatesAutoresizingMaskIntoConstraints = NO;
 		
 		self.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.0];

@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LNNotificationCenter.h"
+
 @class LNNotification;
 
-@interface LNNotificationView : UIView
+@interface LNNotificationBannerView : UIView
 
 @property (nonatomic, strong, readonly) UIVisualEffectView* backgroundView;
 @property (nonatomic, strong, readonly) UIView* notificationContentView;
+
+- (instancetype)initWithFrame:(CGRect)frame style:(LNNotificationBannerStyle)style;
 
 - (void)configureForNotification:(LNNotification*)notification;
 

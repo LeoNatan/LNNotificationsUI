@@ -7,33 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		390001B819B90FD600EA4BF2 /* LNNotificationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 390001B619B90FD600EA4BF2 /* LNNotificationWindow.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		390001B919B90FD600EA4BF2 /* LNNotificationWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 390001B719B90FD600EA4BF2 /* LNNotificationWindow.m */; };
-		390001BC19B9133600EA4BF2 /* LNNotificationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 390001BA19B9133600EA4BF2 /* LNNotificationView.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		390001BD19B9133600EA4BF2 /* LNNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 390001BB19B9133600EA4BF2 /* LNNotificationView.m */; };
-		399CC1EF19BA49F800260C9F /* _LNDefaultIconBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 399CC1ED19BA49F800260C9F /* _LNDefaultIconBase64.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		399CC1F019BA49F800260C9F /* _LNDefaultIconBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 399CC1EE19BA49F800260C9F /* _LNDefaultIconBase64.m */; };
+		390001B819B90FD600EA4BF2 /* LNNotificationBannerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 390001B619B90FD600EA4BF2 /* LNNotificationBannerWindow.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		390001B919B90FD600EA4BF2 /* LNNotificationBannerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 390001B719B90FD600EA4BF2 /* LNNotificationBannerWindow.m */; };
+		390001BC19B9133600EA4BF2 /* LNNotificationBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 390001BA19B9133600EA4BF2 /* LNNotificationBannerView.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		390001BD19B9133600EA4BF2 /* LNNotificationBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 390001BB19B9133600EA4BF2 /* LNNotificationBannerView.m */; };
+		3976DDB619CCA37F00053EEF /* LNNotificationsUIAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */; };
+		39883C7219CB756D002499F5 /* LNNotificationSettingsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39883C7319CB756D002499F5 /* LNNotificationSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */; };
+		39883C7619CB79C1002499F5 /* LNNotificationAppSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39883C7719CB79C1002499F5 /* LNNotificationAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 39883C7519CB79C1002499F5 /* LNNotificationAppSettings.m */; };
+		39AC2B5A19CBA2900018CCC6 /* LNNotificationsAppSettingsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 39AC2B5819CBA2900018CCC6 /* LNNotificationsAppSettingsController.h */; };
+		39AC2B5B19CBA2900018CCC6 /* LNNotificationsAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AC2B5919CBA2900018CCC6 /* LNNotificationsAppSettingsController.m */; };
 		39CA2E3219B8F2E7009C1792 /* LNNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CA2E3019B8F2E7009C1792 /* LNNotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CA2E3319B8F2E7009C1792 /* LNNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA2E3119B8F2E7009C1792 /* LNNotificationCenter.m */; };
 		39CA2E3619B8F364009C1792 /* LNNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CA2E3419B8F364009C1792 /* LNNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CA2E3719B8F364009C1792 /* LNNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA2E3519B8F364009C1792 /* LNNotification.m */; };
+		39D646E319E5D7460069C197 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D646E219E5D7460069C197 /* AVFoundation.framework */; };
 		39FC4F8919B8EFB400E45E37 /* LNNotificationsUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 39FC4F8819B8EFB400E45E37 /* LNNotificationsUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39FDB3F219CB9A97001E5134 /* LNNotificationAppSettings_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 39FDB3F119CB9A97001E5134 /* LNNotificationAppSettings_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		390001B619B90FD600EA4BF2 /* LNNotificationWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationWindow.h; sourceTree = "<group>"; };
-		390001B719B90FD600EA4BF2 /* LNNotificationWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationWindow.m; sourceTree = "<group>"; };
-		390001BA19B9133600EA4BF2 /* LNNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationView.h; sourceTree = "<group>"; };
-		390001BB19B9133600EA4BF2 /* LNNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationView.m; sourceTree = "<group>"; };
-		399CC1ED19BA49F800260C9F /* _LNDefaultIconBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LNDefaultIconBase64.h; sourceTree = "<group>"; };
-		399CC1EE19BA49F800260C9F /* _LNDefaultIconBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LNDefaultIconBase64.m; sourceTree = "<group>"; };
+		390001B619B90FD600EA4BF2 /* LNNotificationBannerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationBannerWindow.h; sourceTree = "<group>"; };
+		390001B719B90FD600EA4BF2 /* LNNotificationBannerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationBannerWindow.m; sourceTree = "<group>"; };
+		390001BA19B9133600EA4BF2 /* LNNotificationBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationBannerView.h; sourceTree = "<group>"; };
+		390001BB19B9133600EA4BF2 /* LNNotificationBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationBannerView.m; sourceTree = "<group>"; };
+		3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LNNotificationsUIAssets.xcassets; sourceTree = "<group>"; };
+		39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationSettingsController.h; sourceTree = "<group>"; };
+		39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationSettingsController.m; sourceTree = "<group>"; };
+		39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationAppSettings.h; sourceTree = "<group>"; };
+		39883C7519CB79C1002499F5 /* LNNotificationAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationAppSettings.m; sourceTree = "<group>"; };
+		39AC2B5819CBA2900018CCC6 /* LNNotificationsAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LNNotificationsAppSettingsController.h; path = ../LNNotificationsAppSettingsController.h; sourceTree = "<group>"; };
+		39AC2B5919CBA2900018CCC6 /* LNNotificationsAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LNNotificationsAppSettingsController.m; path = ../LNNotificationsAppSettingsController.m; sourceTree = "<group>"; };
 		39CA2E3019B8F2E7009C1792 /* LNNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationCenter.h; sourceTree = "<group>"; };
 		39CA2E3119B8F2E7009C1792 /* LNNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationCenter.m; sourceTree = "<group>"; };
 		39CA2E3419B8F364009C1792 /* LNNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotification.h; sourceTree = "<group>"; };
 		39CA2E3519B8F364009C1792 /* LNNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotification.m; sourceTree = "<group>"; };
+		39D646E219E5D7460069C197 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		39FC4F8319B8EFB400E45E37 /* LNNotificationsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LNNotificationsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FC4F8719B8EFB400E45E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39FC4F8819B8EFB400E45E37 /* LNNotificationsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNNotificationsUI.h; sourceTree = "<group>"; };
+		39FDB3F119CB9A97001E5134 /* LNNotificationAppSettings_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationAppSettings_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D646E319E5D7460069C197 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +65,8 @@
 		39FC4F7919B8EFB400E45E37 = {
 			isa = PBXGroup;
 			children = (
+				39D646E219E5D7460069C197 /* AVFoundation.framework */,
+				3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */,
 				39FC4F8519B8EFB400E45E37 /* LNNotificationsUI */,
 				39FC4F8419B8EFB400E45E37 /* Products */,
 			);
@@ -71,10 +88,17 @@
 				39CA2E3119B8F2E7009C1792 /* LNNotificationCenter.m */,
 				39CA2E3419B8F364009C1792 /* LNNotification.h */,
 				39CA2E3519B8F364009C1792 /* LNNotification.m */,
-				390001BA19B9133600EA4BF2 /* LNNotificationView.h */,
-				390001BB19B9133600EA4BF2 /* LNNotificationView.m */,
-				390001B619B90FD600EA4BF2 /* LNNotificationWindow.h */,
-				390001B719B90FD600EA4BF2 /* LNNotificationWindow.m */,
+				390001BA19B9133600EA4BF2 /* LNNotificationBannerView.h */,
+				390001BB19B9133600EA4BF2 /* LNNotificationBannerView.m */,
+				390001B619B90FD600EA4BF2 /* LNNotificationBannerWindow.h */,
+				390001B719B90FD600EA4BF2 /* LNNotificationBannerWindow.m */,
+				39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */,
+				39FDB3F119CB9A97001E5134 /* LNNotificationAppSettings_Private.h */,
+				39883C7519CB79C1002499F5 /* LNNotificationAppSettings.m */,
+				39AC2B5819CBA2900018CCC6 /* LNNotificationsAppSettingsController.h */,
+				39AC2B5919CBA2900018CCC6 /* LNNotificationsAppSettingsController.m */,
+				39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */,
+				39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */,
 				39FC4F8619B8EFB400E45E37 /* Supporting Files */,
 			);
 			path = LNNotificationsUI;
@@ -83,8 +107,6 @@
 		39FC4F8619B8EFB400E45E37 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				399CC1ED19BA49F800260C9F /* _LNDefaultIconBase64.h */,
-				399CC1EE19BA49F800260C9F /* _LNDefaultIconBase64.m */,
 				39FC4F8719B8EFB400E45E37 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -98,10 +120,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39FC4F8919B8EFB400E45E37 /* LNNotificationsUI.h in Headers */,
-				390001B819B90FD600EA4BF2 /* LNNotificationWindow.h in Headers */,
-				390001BC19B9133600EA4BF2 /* LNNotificationView.h in Headers */,
-				399CC1EF19BA49F800260C9F /* _LNDefaultIconBase64.h in Headers */,
+				390001B819B90FD600EA4BF2 /* LNNotificationBannerWindow.h in Headers */,
+				390001BC19B9133600EA4BF2 /* LNNotificationBannerView.h in Headers */,
+				39883C7219CB756D002499F5 /* LNNotificationSettingsController.h in Headers */,
+				39883C7619CB79C1002499F5 /* LNNotificationAppSettings.h in Headers */,
 				39CA2E3219B8F2E7009C1792 /* LNNotificationCenter.h in Headers */,
+				39FDB3F219CB9A97001E5134 /* LNNotificationAppSettings_Private.h in Headers */,
+				39AC2B5A19CBA2900018CCC6 /* LNNotificationsAppSettingsController.h in Headers */,
 				39CA2E3619B8F364009C1792 /* LNNotification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +158,7 @@
 		39FC4F7A19B8EFB400E45E37 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Leo Natan";
 				TargetAttributes = {
 					39FC4F8219B8EFB400E45E37 = {
@@ -163,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3976DDB619CCA37F00053EEF /* LNNotificationsUIAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,10 +200,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				39CA2E3719B8F364009C1792 /* LNNotification.m in Sources */,
+				39883C7319CB756D002499F5 /* LNNotificationSettingsController.m in Sources */,
 				39CA2E3319B8F2E7009C1792 /* LNNotificationCenter.m in Sources */,
-				399CC1F019BA49F800260C9F /* _LNDefaultIconBase64.m in Sources */,
-				390001B919B90FD600EA4BF2 /* LNNotificationWindow.m in Sources */,
-				390001BD19B9133600EA4BF2 /* LNNotificationView.m in Sources */,
+				39AC2B5B19CBA2900018CCC6 /* LNNotificationsAppSettingsController.m in Sources */,
+				390001B919B90FD600EA4BF2 /* LNNotificationBannerWindow.m in Sources */,
+				390001BD19B9133600EA4BF2 /* LNNotificationBannerView.m in Sources */,
+				39883C7719CB79C1002499F5 /* LNNotificationAppSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +218,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -221,6 +248,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -268,6 +296,7 @@
 		39FC4F9719B8EFB400E45E37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -277,12 +306,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		39FC4F9819B8EFB400E45E37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
