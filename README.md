@@ -2,9 +2,8 @@
 
 `LNNotificationsUI` is a framework for displaying notifications similar to Apple's iOS 7 and iOS 8 notifications. It is meant to complement the native look and feel, by providing a pixel-accurate (as much as possible) recreation of the notifications.
 
-<img src="./Screenshots/Presentation.png"/>
-
-<img src="./Screenshots/LNNotificationsUI.gif"/>
+<img src="./Screenshots/Presentation.png" width="320px"/> 
+<img src="./Screenshots/LNNotificationsUI.gif" height="568px"/>
 
 See a video [here](https://vimeo.com/105395794).
 
@@ -28,7 +27,7 @@ See a video [here](https://vimeo.com/105395794).
 
 ## Adding to Your Project
 
-Drag the `LNNotificationsUI` project to your project, and add `LNNotificationsUI.framework` under **Link Binary With Libraries** in your project target.
+Drag the `LNNotificationsUI` project to your project, and add `LNNotificationsUI.framework` under **Link Binary With Libraries** in your project target. Make sure to add `LNNotificationsUIAssets.xcassets` to your target's `Copy Bundle Resources`.
 
 ## Using the Framework
 
