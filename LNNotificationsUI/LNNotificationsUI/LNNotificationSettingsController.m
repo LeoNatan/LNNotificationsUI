@@ -24,6 +24,7 @@
 @interface LNNotificationCenter ()
 
 - (NSDictionary*)_applicationsMapping;
+- (NSDictionary*)_notificationSettings;
 
 @end
 
@@ -32,6 +33,8 @@
 	NSDictionary* _mapping;
 	NSArray* _includedApps;
 	NSArray* _excludedApps;
+	
+	LNNotificationsAppSettingsController* _embeddedAppSettingsController;
 }
 
 - (instancetype)init
@@ -136,10 +139,18 @@
 {
 	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"appDetailCell" forIndexPath:indexPath];
 	
-	NSDictionary* app = _includedApps[indexPath.row];
+	NSDictionary* app;
+ 
+	if(indexPath.section == 1 || _includedApps.count == 0)
+	{
+		app = _excludedApps[indexPath.row];
+	}
+	else if(indexPath.section == 0 && _includedApps.count > 0)
+	{
+		app = _includedApps[indexPath.row];
+	}
 	
 	cell.textLabel.text = app[LNAppNameKey];
-//	cell.detailTextLabel.text = @"alasda";
 	cell.imageView.image = app[LNAppIconNameKey];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
@@ -151,11 +162,61 @@
 	[super viewWillAppear:animated];
 	
 	_mapping = [[LNNotificationCenter defaultCenter] _applicationsMapping];
+	NSDictionary* settings = [[LNNotificationCenter defaultCenter] _notificationSettings];
 	
-	_includedApps = [_mapping.allValues filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"LNNotificationsDisabledKey = NULL OR LNNotificationsDisabledKey = NO"]];
-	_excludedApps = [_mapping.allValues filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"LNNotificationsDisabledKey = YES"]];
+	NSMutableDictionary* dictionary = [NSMutableDictionary new];
 	
-	[self.tableView reloadData];
+	[_mapping enumerateKeysAndObjectsUsingBlock:^(id key, NSDictionary* obj, BOOL *stop) {
+		NSMutableDictionary* app = [obj mutableCopy];
+		[app addEntriesFromDictionary:settings[key]];
+		dictionary[key] = app;
+	}];
+	
+	_mapping = dictionary;
+	
+	_includedApps = [[_mapping.allValues filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"LNNotificationsDisabledKey = NULL OR LNNotificationsDisabledKey = NO"]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:LNAppNameKey ascending:YES]]];
+	_excludedApps = [[_mapping.allValues filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"LNNotificationsDisabledKey = YES"]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:LNAppNameKey ascending:YES]]];
+	
+	if(_mapping.count == 1)
+	{
+		[self _embeddSettingsControllerIfNeededWithAppIdentifier:_mapping.allKeys.firstObject];
+	}
+	else
+	{
+		[self.tableView reloadData];
+	}
+}
+
+- (void)_embeddSettingsControllerIfNeededWithAppIdentifier:(NSString*)appIdentifier
+{
+	if(_embeddedAppSettingsController != nil)
+	{
+		return;
+	}
+	
+	_embeddedAppSettingsController = [[LNNotificationsAppSettingsController alloc] initWithAppIdentifier:appIdentifier];
+	
+	[self addChildViewController:_embeddedAppSettingsController];
+	
+	UITableView* appSetting = _embeddedAppSettingsController.tableView;
+	_embeddedAppSettingsController.view = [UITableView new];
+	self.view = appSetting;
+	[_embeddedAppSettingsController didMoveToParentViewController:self];
+	
+	self.navigationItem.title = _embeddedAppSettingsController.navigationItem.title;
+}
+
+- (void)viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+	
+	[self.tableView setContentInset:UIEdgeInsetsMake(self.topLayoutGuide.length, 0, 0, self.bottomLayoutGuide.length)];
+	[self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(self.topLayoutGuide.length, 0, 0, self.bottomLayoutGuide.length)];
+	
+//	_embeddedAppSettingsController.tableView.frame = self.tableView.bounds;
+//	_embeddedAppSettingsController.tableView.alwaysBounceVertical = YES;
+//	
+//	[self.tableView bringSubviewToFront:_embeddedAppSettingsController.tableView];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ Notification settings view controller. Should be embedded in a navigation controller.
+ */
 @interface LNNotificationSettingsController : UITableViewController
 
 @end

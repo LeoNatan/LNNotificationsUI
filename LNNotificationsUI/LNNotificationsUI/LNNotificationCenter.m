@@ -126,7 +126,7 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
 {
-	NSAssert(_applicationMapping[appIdentifier] != nil, @"Unrecognized application identifier: %@. The application must be registered with the notification center before attempting presentation of notifications for the application.", appIdentifier);
+	NSAssert(_applicationMapping[appIdentifier] != nil, @"Unrecognized app identifier: %@. The app must be registered with the notification center before attempting presentation of notifications for it.", appIdentifier);
 	NSParameterAssert(notification.message != nil);
 	
 	if([_notificationSettings[appIdentifier][LNNotificationsDisabledKey] boolValue])

@@ -71,3 +71,5 @@ Use the `notification.object` to get the tapped `LNNotification` object.
 	// Handle tap here.
 }
 ```
+
+To display the notification settings view controller, create an instance of `LNNotificationSettingsController`, either in code or storyboard and display it. This view controller will display all registered apps, and will allow the user to select how notifications are presented to him. If only one app is registered, its settings will appear in this view controller. If there two or more apps registered, a list of apps will appear and selecting an app will show its settings.

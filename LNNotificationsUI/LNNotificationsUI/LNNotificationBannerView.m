@@ -1,5 +1,5 @@
 //
-//  LNNotificationView.m
+//  LNNotificationBannerView.m
 //  LNNotificationsUI
 //
 //  Created by Leo Natan on 9/5/14.

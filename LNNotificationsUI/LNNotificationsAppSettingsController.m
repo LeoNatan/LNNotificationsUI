@@ -201,6 +201,8 @@
 	LNNotificationAlertStyle _alertStyle;
 	
 	LNNotificationAlertStyleCell* _alertStyleCell;
+	
+	__weak UITableView* _originalTableView;
 }
 
 - (instancetype)initWithAppIdentifier:(NSString *)identifier
@@ -220,6 +222,13 @@
 	self.navigationItem.title = _app[LNAppNameKey];
 	
 	return self;
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	_originalTableView = self.tableView;
 }
 
 - (void)alertStyleDidChange:(LNNotificationAlertStyle)alertStyle
@@ -342,15 +351,15 @@
 	
 	if(toggle.isOn)
 	{
-		[self.tableView beginUpdates];
-		[self.tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationFade];
-		[self.tableView endUpdates];
+		[_originalTableView beginUpdates];
+		[_originalTableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationFade];
+		[_originalTableView endUpdates];
 	}
 	else
 	{
-		[self.tableView beginUpdates];
-		[self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationFade];
-		[self.tableView endUpdates];
+		[_originalTableView beginUpdates];
+		[_originalTableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationFade];
+		[_originalTableView endUpdates];
 	}
 }
 

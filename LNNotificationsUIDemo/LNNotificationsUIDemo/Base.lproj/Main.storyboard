@@ -26,7 +26,7 @@
                                 <size key="titleShadowOffset" width="-2" height="-2"/>
                                 <state key="normal" title="Tap to Demo!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="queueMoreButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aug-gf-0eQ"/>
@@ -37,7 +37,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="37"/>
                                 <state key="normal" title="Change Banner Style">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="changeStyleButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hk0-rM-HFw"/>
