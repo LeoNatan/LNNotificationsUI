@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9NR-6v-WZE" kind="presentation" id="Hlm-v1-ggX"/>
+                                    <segue destination="9NR-6v-WZE" kind="presentation" modalPresentationStyle="formSheet" id="Hlm-v1-ggX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,10 +59,10 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="KTR-xQ-6ri" secondAttribute="bottom" id="5gZ-j1-Nvj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lzp-nI-FFw" secondAttribute="trailing" id="DYe-5t-EJH"/>
                             <constraint firstAttribute="centerX" secondItem="gC3-SJ-q8U" secondAttribute="centerX" constant="-0.5" id="Dg3-Uf-SRd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KTR-xQ-6ri" secondAttribute="trailing" constant="-16" id="NCK-xL-rh9"/>
+                            <constraint firstAttribute="trailing" secondItem="KTR-xQ-6ri" secondAttribute="trailing" id="NCK-xL-rh9"/>
                             <constraint firstAttribute="centerY" secondItem="gC3-SJ-q8U" secondAttribute="centerY" constant="20" id="Tuk-8p-rNd"/>
                             <constraint firstItem="gC3-SJ-q8U" firstAttribute="centerX" secondItem="F15-o8-EvH" secondAttribute="centerX" id="e9v-o3-vAu"/>
-                            <constraint firstItem="KTR-xQ-6ri" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="fAg-vt-k2L"/>
+                            <constraint firstItem="KTR-xQ-6ri" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="fAg-vt-k2L"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lzp-nI-FFw" secondAttribute="bottom" constant="8" symbolic="YES" id="haq-by-hHO"/>
                             <constraint firstItem="KTR-xQ-6ri" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="o2U-zK-FNB"/>
                             <constraint firstItem="F15-o8-EvH" firstAttribute="top" secondItem="gC3-SJ-q8U" secondAttribute="bottom" constant="-0.5" id="pEu-Xg-1vs"/>

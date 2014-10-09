@@ -88,10 +88,13 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 {
 	_bannerStyle = bannerStyle;
 	
-	if(_currentlyAnimating)
+	//Signal future handling of banner style change.
+	_wantsBannerStyleChange = YES;
+	
+	if(_currentlyAnimating == NO)
 	{
-		//Signal future handling of banner style change.
-		_wantsBannerStyleChange = YES;
+		//Handle banner change.
+		[self _handleBannerCanChange];
 	}
 }
 
