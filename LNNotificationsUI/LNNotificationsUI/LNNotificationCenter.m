@@ -127,6 +127,25 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	}
 }
 
+- (void)clearPendingNotification:(NSString*)appIdentifier;
+{
+    if([_notificationSettings[appIdentifier][LNNotificationsDisabledKey] boolValue])
+    {
+        return;
+    }
+    
+    id object;
+    NSMutableArray *toremove = [[NSMutableArray alloc] init];
+    for (object in _pendingNotifications) {
+        LNNotification *ln = (LNNotification*)object;
+        if([ln.appIdentifier isEqualToString:appIdentifier]){
+            [toremove addObject:ln];
+        }
+    }
+    [_pendingNotifications removeObjectsInArray:toremove];
+    //[_pendingNotifications removeAllObjects];
+}
+
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
 {
 	NSAssert(_applicationMapping[appIdentifier] != nil, @"Unrecognized app identifier: %@. The app must be registered with the notification center before attempting presentation of notifications for it.", appIdentifier);
