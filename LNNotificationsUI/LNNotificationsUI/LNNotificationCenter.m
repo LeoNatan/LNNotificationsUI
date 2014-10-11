@@ -133,7 +133,17 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
     {
         return;
     }
-    [_pendingNotifications removeAllObjects];
+    
+    id object;
+    NSMutableArray *toremove = [[NSMutableArray alloc] init];
+    for (object in _pendingNotifications) {
+        LNNotification *ln = (LNNotification*)object;
+        if([ln.appIdentifier isEqualToString:appIdentifier]){
+            [toremove addObject:ln];
+        }
+    }
+    [_pendingNotifications removeObjectsInArray:toremove];
+    //[_pendingNotifications removeAllObjects];
 }
 
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
