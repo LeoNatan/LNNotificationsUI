@@ -127,23 +127,14 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	}
 }
 
-- (void)clearPendingNotification:(NSString*)appIdentifier;
+- (void)clearPendingNotificationForApplictionIdentifier:(NSString*)appIdentifier;
 {
-    if([_notificationSettings[appIdentifier][LNNotificationsDisabledKey] boolValue])
-    {
-        return;
-    }
-    
-    id object;
-    NSMutableArray *toremove = [[NSMutableArray alloc] init];
-    for (object in _pendingNotifications) {
-        LNNotification *ln = (LNNotification*)object;
-        if([ln.appIdentifier isEqualToString:appIdentifier]){
-            [toremove addObject:ln];
-        }
-    }
-    [_pendingNotifications removeObjectsInArray:toremove];
-    //[_pendingNotifications removeAllObjects];
+	[_pendingNotifications filterUsingPredicate:[NSPredicate predicateWithFormat:@"appIdentifier != %@", appIdentifier]];
+}
+
+- (void)clearAllPendingNotifications;
+{
+	[_pendingNotifications removeAllObjects];
 }
 
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
@@ -155,34 +146,34 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	{
 		return;
 	}
-
-		if([_notificationSettings[appIdentifier][LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleNone)
+	
+	if([_notificationSettings[appIdentifier][LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleNone)
+	{
+		[self _handleSoundForAppId:appIdentifier fileName:notification.soundName];
+	}
+	else
+	{
+		LNNotification* pendingNotification = [notification copy];
+		
+		pendingNotification.title = notification.title ? notification.title : _applicationMapping[appIdentifier][LNAppNameKey];
+		pendingNotification.icon = notification.icon ? notification.icon : _applicationMapping[appIdentifier][LNAppIconNameKey];
+		pendingNotification.alertAction = notification.alertAction ? notification.alertAction : NSLocalizedString(@"View", @"");
+		pendingNotification.appIdentifier = appIdentifier;
+		
+		if([_notificationSettings[appIdentifier][LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleAlert)
 		{
+			LNNotificationAlertView* alert = [[LNNotificationAlertView alloc] initWithTitle:pendingNotification.title message:pendingNotification.message delegate:self cancelButtonTitle:NSLocalizedString(@"Close", @"") otherButtonTitles:pendingNotification.alertAction, nil];
+			alert.alertBackingNotification = pendingNotification;
+			[alert show];
 			[self _handleSoundForAppId:appIdentifier fileName:notification.soundName];
 		}
 		else
 		{
-			LNNotification* pendingNotification = [notification copy];
+			[_pendingNotifications addObject:pendingNotification];
 			
-			pendingNotification.title = notification.title ? notification.title : _applicationMapping[appIdentifier][LNAppNameKey];
-			pendingNotification.icon = notification.icon ? notification.icon : _applicationMapping[appIdentifier][LNAppIconNameKey];
-			pendingNotification.alertAction = notification.alertAction ? notification.alertAction : NSLocalizedString(@"View", @"");
-			pendingNotification.appIdentifier = appIdentifier;
-
-			if([_notificationSettings[appIdentifier][LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleAlert)
-			{
-				LNNotificationAlertView* alert = [[LNNotificationAlertView alloc] initWithTitle:pendingNotification.title message:pendingNotification.message delegate:self cancelButtonTitle:NSLocalizedString(@"Close", @"") otherButtonTitles:pendingNotification.alertAction, nil];
-				alert.alertBackingNotification = pendingNotification;
-				[alert show];
-				[self _handleSoundForAppId:appIdentifier fileName:notification.soundName];
-			}
-			else
-			{
-				[_pendingNotifications addObject:pendingNotification];
-				
-				[self _handlePendingNotifications];
-			}
+			[self _handlePendingNotifications];
 		}
+	}
 }
 
 - (void)_handlePendingNotifications

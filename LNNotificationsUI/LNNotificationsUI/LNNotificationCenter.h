@@ -40,8 +40,13 @@ typedef NS_ENUM(NSUInteger, LNNotificationBannerStyle) {
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
 
 /**
- Dequeues all the pending notifications
+ Clears pending notifications for the specified application identifier.
  */
-- (void)clearPendingNotification:(NSString*)appIdentifier;
+- (void)clearPendingNotificationForApplictionIdentifier:(NSString*)appIdentifier;
+
+/**
+ Clears all pending notifications.
+ */
+- (void)clearAllPendingNotifications;
 
 @end

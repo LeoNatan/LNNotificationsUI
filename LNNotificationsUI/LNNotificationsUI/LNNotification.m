@@ -102,4 +102,18 @@
 	return copy;
 }
 
+- (NSString*)description
+{
+	NSMutableString* description = [[super description] mutableCopy];
+	
+	if(self.appIdentifier)
+	{
+		[description appendFormat:@" appIdentifier: %@", self.appIdentifier];
+	}
+	
+	[description appendFormat:@" ; data: {\n\ttitle = %@\n\tmessage = %@\n\tdate = %@\n\tdisplaysWithRelativeDateFormatting = %@\n\talertAction = %@\n\tsoundName = %@\n}", self.title.description, self.message.description, self.date.description, self.displaysWithRelativeDateFormatting ? @"YES" : @"NO", self.alertAction.description, self.soundName.description];
+	
+	return description;
+}
+
 @end
