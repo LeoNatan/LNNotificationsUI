@@ -54,6 +54,12 @@ LNNotification* notification = [LNNotification notificationWithMessage:@"You've 
 [[LNNotificationCenter defaultCenter] presentNotification:notification forApplicationIdentifier:@"mail_app_identifier"];
 ```
 
+You can also pass a `userInfo` dictionary that will be passed when the user taps a notification:
+
+```
+[[LNNotificationCenter defaultCenter] presentNotification:notification forApplicationIdentifier:@"mail_app_identifier" userInfo: @{@"exampleKey": @"exampleValue"}];
+```
+
 **Note:** For all available notification properties, take a look at the `LNNotification` class definition.
 
 To listen to taps on notifications by the user, register to the ``LNNotificationWasTappedNotification`` notification. You can register for specific notification objects or for all, by passing `nil` as the object.

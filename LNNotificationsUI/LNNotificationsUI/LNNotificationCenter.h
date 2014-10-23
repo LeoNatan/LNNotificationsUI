@@ -40,6 +40,11 @@ typedef NS_ENUM(NSUInteger, LNNotificationBannerStyle) {
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
 
 /**
+ Enqueues the specified notification for presentation when possible. The application identifier must be a previously registered identifier. The passed user info dictionary will be passed back in tap notifications.
+ */
+- (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier userInfo:(NSDictionary*)userInfo;
+
+/**
  Clears pending notifications for the specified application identifier.
  */
 - (void)clearPendingNotificationForApplictionIdentifier:(NSString*)appIdentifier;

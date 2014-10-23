@@ -11,6 +11,7 @@
 @interface LNNotification ()
 
 @property (nonatomic, copy) NSString* appIdentifier;
+@property (nonatomic, copy) NSDictionary* userInfo;
 
 @end
 

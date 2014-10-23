@@ -24,6 +24,7 @@
 @interface LNNotification ()
 
 @property (nonatomic, copy) NSString* appIdentifier;
+@property (nonatomic, copy) NSDictionary* userInfo;
 
 @end
 
@@ -137,7 +138,12 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	[_pendingNotifications removeAllObjects];
 }
 
-- (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier;
+- (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier
+{
+	[self presentNotification:notification forApplicationIdentifier:appIdentifier userInfo:nil];
+}
+
+- (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier userInfo:(NSDictionary*)userInfo
 {
 	NSAssert(_applicationMapping[appIdentifier] != nil, @"Unrecognized app identifier: %@. The app must be registered with the notification center before attempting presentation of notifications for it.", appIdentifier);
 	NSParameterAssert(notification.message != nil);
@@ -159,6 +165,7 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 		pendingNotification.icon = notification.icon ? notification.icon : _applicationMapping[appIdentifier][LNAppIconNameKey];
 		pendingNotification.alertAction = notification.alertAction ? notification.alertAction : NSLocalizedString(@"View", @"");
 		pendingNotification.appIdentifier = appIdentifier;
+		pendingNotification.userInfo = userInfo;
 		
 		if([_notificationSettings[appIdentifier][LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleAlert)
 		{
@@ -279,7 +286,7 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 		return;
 	}
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:LNNotificationWasTappedNotification object:alertView.alertBackingNotification];
+	[[NSNotificationCenter defaultCenter] postNotificationName:LNNotificationWasTappedNotification object:alertView.alertBackingNotification userInfo:alertView.alertBackingNotification.userInfo];
 }
 
 #pragma mark AVAudioPlayerDelegate

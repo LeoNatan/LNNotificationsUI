@@ -19,6 +19,12 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 
 extern NSString* const LNNotificationWasTappedNotification;
 
+@interface LNNotification ()
+
+@property (nonatomic, copy) NSDictionary* userInfo;
+
+@end
+
 @implementation LNNotificationBannerWindow
 {
 	LNNotificationBannerView* _notificationView;
@@ -247,7 +253,7 @@ extern NSString* const LNNotificationWasTappedNotification;
 	
 	if(_notificationView.currentNotification != nil)
 	{
-		[[NSNotificationCenter defaultCenter] postNotificationName:LNNotificationWasTappedNotification object:_notificationView.currentNotification];
+		[[NSNotificationCenter defaultCenter] postNotificationName:LNNotificationWasTappedNotification object:_notificationView.currentNotification userInfo:_notificationView.currentNotification.userInfo];
 	}
 }
 
