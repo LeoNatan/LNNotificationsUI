@@ -128,7 +128,14 @@
 	[self.contentView addSubview:banner];
 	[self.contentView addSubview:alert];
 	
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[none(==banner)]-[banner(==alert)]-[alert(==none)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(none, banner, alert)]];
+	if([UIVisualEffectView class])
+	{
+		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[none(==banner)]-[banner(==alert)]-[alert(==none)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(none, banner, alert)]];
+	}
+	else
+	{
+		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-25-[none(==banner)]-55-[banner(==alert)]-55-[alert(==none)]-25-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(none, banner, alert)]];
+	}
 	
 	_noneLabel = [_LNTintedLabel new];
 	_noneLabel.text = NSLocalizedString(@"None", @"");
@@ -153,6 +160,8 @@
 	
 	_alertStyle = alertStyle;
 	[self _updateLabelsAccordingToStyle];
+	
+	[self.contentView setNeedsUpdateConstraints];
 	
 	return self;
 }
@@ -329,18 +338,29 @@
 			break;
 	}
 	
-//	NSDictionary* app = _includedApps[indexPath.row];
-//	
-//	cell.textLabel.text = app[LNAppNameKey];
-//	//	cell.detailTextLabel.text = @"alasda";
-//	cell.imageView.image = app[LNAppIconNameKey];
-	
 	return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return NO;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if([UIVisualEffectView class] != nil)
+	{
+		//iOS 8.0 and above - table view will calculate cell height according to auto layout constraints.
+		return UITableViewAutomaticDimension;
+	}
+	
+	switch (indexPath.section)
+	{
+		case 2:
+			return 160.0;
+		default:
+			return 44.0;
+	}
 }
 
 - (void)_didToggleEnableDisable:(UISwitch*)toggle

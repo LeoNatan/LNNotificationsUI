@@ -11,6 +11,62 @@
 
 static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 
+@protocol _LNBackgroundViewCommon <NSObject>
+
+@property (nonatomic, strong, readonly) UIView* contentView;
+@property (nonatomic, copy, readonly) UIVisualEffect *effect;
+@property(nonatomic) UIBarStyle barStyle;
+
+@end
+
+@interface _LNFakeBlurringView : UIToolbar <_LNBackgroundViewCommon>
+
+@property (nonatomic, strong, readonly) UIView* contentView;
+
+@end
+
+@implementation _LNFakeBlurringView
+
+@dynamic effect;
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+	self = [super initWithFrame:frame];
+	
+	_contentView = [[UIView alloc] initWithFrame:frame];
+	
+	[self addSubview:_contentView];
+	[self bringSubviewToFront:_contentView];
+	
+	return self;
+}
+
+@end
+
+@interface _LNFakeVibrancyView : UIView <_LNBackgroundViewCommon>
+
+@property (nonatomic, strong, readonly) UIView* contentView;
+
+@end
+
+@implementation _LNFakeVibrancyView
+
+@dynamic effect, barStyle;
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+	self = [super initWithFrame:frame];
+	
+	_contentView = [[UIView alloc] initWithFrame:frame];
+	
+	[self addSubview:_contentView];
+	[self bringSubviewToFront:_contentView];
+	
+	return self;
+}
+
+@end
+
 @implementation LNNotificationBannerView
 {
 	UIImageView* _appIcon;
@@ -19,7 +75,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 	UILabel* _messageLabel;
 	
 	UIView* _notificationContentView;
-	UIVisualEffectView* _backgroundView;
+	UIView<_LNBackgroundViewCommon>* _backgroundView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -39,13 +95,24 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		
 		self.backgroundColor = [UIColor clearColor];
 		
-		UIVisualEffectView* bgView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:style == LNNotificationBannerStyleDark ? UIBlurEffectStyleDark : UIBlurEffectStyleExtraLight]];
+		UIView<_LNBackgroundViewCommon>* bgView;
+		
+		if([UIVisualEffectView class])
+		{
+			bgView = (id)[[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:style == LNNotificationBannerStyleDark ? UIBlurEffectStyleDark : UIBlurEffectStyleExtraLight]];
+		}
+		else
+		{
+			bgView = [[_LNFakeBlurringView alloc] initWithFrame:CGRectZero];
+			[bgView setBarStyle:style == LNNotificationBannerStyleDark ? UIBarStyleBlack : UIBarStyleDefault];
+		}
+		
 		bgView.frame = self.bounds;
 		bgView.userInteractionEnabled = NO;
 		bgView.translatesAutoresizingMaskIntoConstraints = NO;
 		bgView.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 		
-		UIView* contV = bgView.contentView;
+		UIView* contV = [(id)bgView contentView];
 		
 		[bgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contV]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(contV)]];
 		[bgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contV]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(contV)]];
@@ -96,7 +163,15 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		[_dateLabel setContentHuggingPriority:1000 forAxis:UILayoutConstraintAxisHorizontal];
 		[_dateLabel setContentHuggingPriority:1000 forAxis:UILayoutConstraintAxisVertical];
 		
-		UIVisualEffectView* dateBG = [[UIVisualEffectView alloc] initWithEffect:[UIVibrancyEffect effectForBlurEffect:(id)bgView.effect]];
+		UIView<_LNBackgroundViewCommon>* dateBG;
+		if([UIVisualEffectView class])
+		{
+			dateBG = (id)[[UIVisualEffectView alloc] initWithEffect:[UIVibrancyEffect effectForBlurEffect:(id)bgView.effect]];
+		}
+		else
+		{
+			dateBG = [[_LNFakeVibrancyView alloc] initWithFrame:CGRectZero];
+		}
 		dateBG.translatesAutoresizingMaskIntoConstraints = NO;
 		dateBG.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 		
@@ -133,7 +208,17 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		drawer.backgroundColor = [UIColor whiteColor];
 		drawer.translatesAutoresizingMaskIntoConstraints = NO;
 		
-		UIVisualEffectView* drawerBG = [[UIVisualEffectView alloc] initWithEffect:[UIVibrancyEffect effectForBlurEffect:(id)bgView.effect]];
+		UIView<_LNBackgroundViewCommon>* drawerBG;
+		
+		if([UIVisualEffectView class])
+		{
+			drawerBG = (id)[[UIVisualEffectView alloc] initWithEffect:[UIVibrancyEffect effectForBlurEffect:(id)bgView.effect]];
+		}
+		else
+		{
+			drawerBG = [[_LNFakeVibrancyView alloc] initWithFrame:CGRectZero];
+		}
+	
 		drawerBG.translatesAutoresizingMaskIntoConstraints = NO;
 		drawerBG.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 		
@@ -162,13 +247,15 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		
 		drawer.layer.mask = layer;
 		
+		drawer.backgroundColor = style == LNNotificationBannerStyleDark ? [UIColor whiteColor] : [UIColor blackColor];
+		
 		_backgroundView = bgView;
 	}
 	
 	return self;
 }
 
-- (UIVisualEffectView *)backgroundView
+- (UIView *)backgroundView
 {
 	return _backgroundView;
 }

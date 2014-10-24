@@ -79,3 +79,15 @@ Use the `notification.object` to get the tapped `LNNotification` object.
 ```
 
 To display the notification settings view controller, create an instance of `LNNotificationSettingsController`, either in code or storyboard and display it. This view controller will display all registered apps, and will allow the user to select how notifications are presented to him. If only one app is registered, its settings will appear in this view controller. If there two or more apps registered, a list of apps will appear and selecting an app will show its settings.
+
+## iOS 7.0 Projects Support
+
+iOS versions below 8.0 do not support dynamic frameworks, so adding the project as described above will not work. To use the framework, add all `.h` and `.m` files from `LNNotificationsUI\LNNotificationsUI` as well as `LNNotificationsUIAssets.xcassets` to your project, and import `LNNotificationsUI_iOS7.1.h`:
+
+```
+#import "LNNotificationsUI_iOS7.1.h"
+```
+
+You can now use the framework normally.
+
+The framework will do its best to display as close as possible to the intended result, but some parts, such as vibrancy effects are disabled due to no iOS 7.0 public API.

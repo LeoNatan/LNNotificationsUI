@@ -11,13 +11,13 @@
 		390001B919B90FD600EA4BF2 /* LNNotificationBannerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 390001B719B90FD600EA4BF2 /* LNNotificationBannerWindow.m */; };
 		390001BC19B9133600EA4BF2 /* LNNotificationBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 390001BA19B9133600EA4BF2 /* LNNotificationBannerView.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		390001BD19B9133600EA4BF2 /* LNNotificationBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 390001BB19B9133600EA4BF2 /* LNNotificationBannerView.m */; };
+		391D31B619F9C3C40065E9D3 /* LNNotificationsAppSettingsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 391D31B419F9C3C40065E9D3 /* LNNotificationsAppSettingsController.h */; };
+		391D31B719F9C3C40065E9D3 /* LNNotificationsAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391D31B519F9C3C40065E9D3 /* LNNotificationsAppSettingsController.m */; };
 		3976DDB619CCA37F00053EEF /* LNNotificationsUIAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */; };
 		39883C7219CB756D002499F5 /* LNNotificationSettingsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39883C7319CB756D002499F5 /* LNNotificationSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */; };
 		39883C7619CB79C1002499F5 /* LNNotificationAppSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39883C7719CB79C1002499F5 /* LNNotificationAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 39883C7519CB79C1002499F5 /* LNNotificationAppSettings.m */; };
-		39AC2B5A19CBA2900018CCC6 /* LNNotificationsAppSettingsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 39AC2B5819CBA2900018CCC6 /* LNNotificationsAppSettingsController.h */; };
-		39AC2B5B19CBA2900018CCC6 /* LNNotificationsAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AC2B5919CBA2900018CCC6 /* LNNotificationsAppSettingsController.m */; };
 		39CA2E3219B8F2E7009C1792 /* LNNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CA2E3019B8F2E7009C1792 /* LNNotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CA2E3319B8F2E7009C1792 /* LNNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA2E3119B8F2E7009C1792 /* LNNotificationCenter.m */; };
 		39CA2E3619B8F364009C1792 /* LNNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CA2E3419B8F364009C1792 /* LNNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,13 +32,13 @@
 		390001B719B90FD600EA4BF2 /* LNNotificationBannerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationBannerWindow.m; sourceTree = "<group>"; };
 		390001BA19B9133600EA4BF2 /* LNNotificationBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationBannerView.h; sourceTree = "<group>"; };
 		390001BB19B9133600EA4BF2 /* LNNotificationBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationBannerView.m; sourceTree = "<group>"; };
+		391D31B419F9C3C40065E9D3 /* LNNotificationsAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationsAppSettingsController.h; sourceTree = "<group>"; };
+		391D31B519F9C3C40065E9D3 /* LNNotificationsAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationsAppSettingsController.m; sourceTree = "<group>"; };
 		3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LNNotificationsUIAssets.xcassets; sourceTree = "<group>"; };
 		39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationSettingsController.h; sourceTree = "<group>"; };
 		39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationSettingsController.m; sourceTree = "<group>"; };
 		39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationAppSettings.h; sourceTree = "<group>"; };
 		39883C7519CB79C1002499F5 /* LNNotificationAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationAppSettings.m; sourceTree = "<group>"; };
-		39AC2B5819CBA2900018CCC6 /* LNNotificationsAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LNNotificationsAppSettingsController.h; path = ../LNNotificationsAppSettingsController.h; sourceTree = "<group>"; };
-		39AC2B5919CBA2900018CCC6 /* LNNotificationsAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LNNotificationsAppSettingsController.m; path = ../LNNotificationsAppSettingsController.m; sourceTree = "<group>"; };
 		39CA2E3019B8F2E7009C1792 /* LNNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationCenter.h; sourceTree = "<group>"; };
 		39CA2E3119B8F2E7009C1792 /* LNNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationCenter.m; sourceTree = "<group>"; };
 		39CA2E3419B8F364009C1792 /* LNNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotification.h; sourceTree = "<group>"; };
@@ -95,10 +95,10 @@
 				39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */,
 				39FDB3F119CB9A97001E5134 /* LNNotificationAppSettings_Private.h */,
 				39883C7519CB79C1002499F5 /* LNNotificationAppSettings.m */,
-				39AC2B5819CBA2900018CCC6 /* LNNotificationsAppSettingsController.h */,
-				39AC2B5919CBA2900018CCC6 /* LNNotificationsAppSettingsController.m */,
 				39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */,
 				39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */,
+				391D31B419F9C3C40065E9D3 /* LNNotificationsAppSettingsController.h */,
+				391D31B519F9C3C40065E9D3 /* LNNotificationsAppSettingsController.m */,
 				39FC4F8619B8EFB400E45E37 /* Supporting Files */,
 			);
 			path = LNNotificationsUI;
@@ -124,9 +124,9 @@
 				390001BC19B9133600EA4BF2 /* LNNotificationBannerView.h in Headers */,
 				39883C7219CB756D002499F5 /* LNNotificationSettingsController.h in Headers */,
 				39883C7619CB79C1002499F5 /* LNNotificationAppSettings.h in Headers */,
+				391D31B619F9C3C40065E9D3 /* LNNotificationsAppSettingsController.h in Headers */,
 				39CA2E3219B8F2E7009C1792 /* LNNotificationCenter.h in Headers */,
 				39FDB3F219CB9A97001E5134 /* LNNotificationAppSettings_Private.h in Headers */,
-				39AC2B5A19CBA2900018CCC6 /* LNNotificationsAppSettingsController.h in Headers */,
 				39CA2E3619B8F364009C1792 /* LNNotification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,10 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391D31B719F9C3C40065E9D3 /* LNNotificationsAppSettingsController.m in Sources */,
 				39CA2E3719B8F364009C1792 /* LNNotification.m in Sources */,
 				39883C7319CB756D002499F5 /* LNNotificationSettingsController.m in Sources */,
 				39CA2E3319B8F2E7009C1792 /* LNNotificationCenter.m in Sources */,
-				39AC2B5B19CBA2900018CCC6 /* LNNotificationsAppSettingsController.m in Sources */,
 				390001B919B90FD600EA4BF2 /* LNNotificationBannerWindow.m in Sources */,
 				390001BD19B9133600EA4BF2 /* LNNotificationBannerView.m in Sources */,
 				39883C7719CB79C1002499F5 /* LNNotificationAppSettings.m in Sources */,

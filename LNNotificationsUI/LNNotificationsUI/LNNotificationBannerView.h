@@ -14,7 +14,7 @@
 
 @interface LNNotificationBannerView : UIView
 
-@property (nonatomic, strong, readonly) UIVisualEffectView* backgroundView;
+@property (nonatomic, strong, readonly) UIView* backgroundView;
 @property (nonatomic, strong, readonly) UIView* notificationContentView;
 
 - (instancetype)initWithFrame:(CGRect)frame style:(LNNotificationBannerStyle)style;
