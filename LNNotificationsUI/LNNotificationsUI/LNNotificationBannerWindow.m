@@ -25,6 +25,16 @@ extern NSString* const LNNotificationWasTappedNotification;
 
 @end
 
+@interface _LNStatusBarStylePreservingViewController : UIViewController @end
+@implementation _LNStatusBarStylePreservingViewController
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+	return [[UIApplication sharedApplication] statusBarStyle];
+}
+
+@end
+
 @implementation LNNotificationBannerWindow
 {
 	LNNotificationBannerView* _notificationView;
@@ -55,7 +65,7 @@ extern NSString* const LNNotificationWasTappedNotification;
 		
 		self.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.0];
 
-		UIViewController* vc = [UIViewController new];
+		UIViewController* vc = [_LNStatusBarStylePreservingViewController new];
 		[vc.view addSubview:_notificationView];
 		
 		[vc.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_notificationView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_notificationView)]];
