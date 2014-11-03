@@ -151,7 +151,20 @@
 	}
 	
 	cell.textLabel.text = app[LNAppNameKey];
-	cell.imageView.image = app[LNAppIconNameKey];
+	
+	UIImage* image = app[LNAppIconNameKey];
+	
+	CGSize itemSize = CGSizeMake(30, 30);
+	UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+	[image drawInRect:CGRectMake(0.0, 0.0, itemSize.width, itemSize.height)];
+	cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	cell.imageView.layer.masksToBounds = YES;
+	cell.imageView.layer.cornerRadius = 4.6875;
+	cell.imageView.layer.borderWidth = 1 / [UIScreen mainScreen].scale;
+	cell.imageView.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.2].CGColor;
+	
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	return cell;
@@ -185,6 +198,11 @@
 	{
 		[self.tableView reloadData];
 	}
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+	return UIStatusBarStyleDefault;
 }
 
 - (void)_embeddSettingsControllerIfNeededWithAppIdentifier:(NSString*)appIdentifier

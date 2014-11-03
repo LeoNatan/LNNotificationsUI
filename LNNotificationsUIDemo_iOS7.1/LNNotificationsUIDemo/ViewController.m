@@ -53,9 +53,9 @@
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWasTapped:) name:LNNotificationWasTappedNotification object:nil];
 	
-	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"123" name:@"Notifications Demp App 1" icon:nil defaultSettings:LNNotificationDefaultAppSettings];
-	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"456" name:@"Notifications Demp App 2" icon:nil defaultSettings:LNNotificationDefaultAppSettings];
-	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"789" name:@"Notifications Demp App 3" icon:nil defaultSettings:LNNotificationDefaultAppSettings];
+	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"123" name:@"Notifications Demp App 1" icon:[UIImage imageNamed:@"DemoApp1Icon"] defaultSettings:LNNotificationDefaultAppSettings];
+	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"456" name:@"Notifications Demp App 2" icon:[UIImage imageNamed:@"DemoApp2Icon"] defaultSettings:LNNotificationDefaultAppSettings];
+	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"789" name:@"Notifications Demp App 3" icon:[UIImage imageNamed:@"DemoApp3Icon"] defaultSettings:LNNotificationDefaultAppSettings];
 	
 	LNNotification* notification = [LNNotification notificationWithMessage:@"Welcome to LNNotificationsUI!"];
 	notification.title = @"Hello World!";

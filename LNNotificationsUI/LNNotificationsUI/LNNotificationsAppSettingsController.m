@@ -276,7 +276,7 @@
 {
 	if(section == 2)
 	{
-		return NSLocalizedString(@"Alerts require an action before proceeding.\nBanners appear at the top of the screen and\ngo away automatically.", @"");
+		return NSLocalizedString(@"Alerts require an action before proceeding.\nBanners appear at the top of the screen and go away automatically.", @"");
 	}
 	
 	return nil;
