@@ -205,6 +205,8 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 		[self _handleBannerCanChange];
 		
 		[self _handlePendingNotifications];
+		
+		_notificationWindow = nil;
 	};
 	
 	if(_pendingNotifications.count == 0)
