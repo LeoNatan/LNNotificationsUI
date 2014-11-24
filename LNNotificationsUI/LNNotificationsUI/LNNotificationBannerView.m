@@ -144,6 +144,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		_titleLabel.font = [UIFont boldSystemFontOfSize:13];
 		_titleLabel.textColor = style == LNNotificationBannerStyleDark ? [UIColor whiteColor] : [UIColor blackColor];
 		_titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+		_titleLabel.backgroundColor = [UIColor clearColor];
 		
 		[_notificationContentView addSubview:_titleLabel];
 		
@@ -152,6 +153,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		_messageLabel.textColor = style == LNNotificationBannerStyleDark ? [UIColor whiteColor] : [UIColor blackColor];
 		_messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		_messageLabel.numberOfLines = 2;
+		_messageLabel.backgroundColor = [UIColor clearColor];
 		
 		[_notificationContentView addSubview:_messageLabel];
 		
@@ -166,6 +168,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 		[_dateLabel setContentCompressionResistancePriority:1000 forAxis:UILayoutConstraintAxisVertical];
 		[_dateLabel setContentHuggingPriority:1000 forAxis:UILayoutConstraintAxisHorizontal];
 		[_dateLabel setContentHuggingPriority:1000 forAxis:UILayoutConstraintAxisVertical];
+		_dateLabel.backgroundColor = [UIColor clearColor];
 		
 		UIView<_LNBackgroundViewCommon>* dateBG;
 		if([UIVisualEffectView class])
