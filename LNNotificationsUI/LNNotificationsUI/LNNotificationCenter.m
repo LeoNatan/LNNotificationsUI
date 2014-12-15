@@ -287,12 +287,4 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	[[NSNotificationCenter defaultCenter] postNotificationName:LNNotificationWasTappedNotification object:alertView.alertBackingNotification userInfo:alertView.alertBackingNotification.userInfo];
 }
 
-#pragma mark AVAudioPlayerDelegate
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-	[_currentAudioPlayer stop];
-	_currentAudioPlayer = nil;
-}
-
 @end
