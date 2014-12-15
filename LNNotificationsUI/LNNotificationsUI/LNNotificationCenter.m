@@ -34,7 +34,7 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 
 NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedNotification";;
 
-@interface LNNotificationCenter () <UIAlertViewDelegate, AVAudioPlayerDelegate> @end
+@interface LNNotificationCenter () <UIAlertViewDelegate> @end
 
 @implementation LNNotificationCenter
 {
@@ -48,7 +48,6 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	
 	BOOL _currentlyAnimating;
 	
-	AVAudioPlayer* _currentAudioPlayer;
 }
 
 + (instancetype)defaultCenter
@@ -246,11 +245,10 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	NSString *soundFilePath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], fileName];
 	NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
 	
-	[_currentAudioPlayer stop];
+	SystemSoundID sound = 0;
 	
-	_currentAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-	_currentAudioPlayer.delegate = self;
-	[_currentAudioPlayer play];
+	AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundFileURL, &sound);
+	AudioServicesPlaySystemSound(sound);
 }
 
 - (NSDictionary*)_applicationsMapping
