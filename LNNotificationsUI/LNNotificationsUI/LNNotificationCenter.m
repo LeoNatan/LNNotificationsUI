@@ -70,7 +70,7 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 		_applicationMapping = [NSMutableDictionary new];
 		_pendingNotifications = [NSMutableArray new];
 		
-		_notificationSettings = [[NSUserDefaults standardUserDefaults] valueForKey:_LNSettingsKey];
+		_notificationSettings = [[[NSUserDefaults standardUserDefaults] valueForKey:_LNSettingsKey] mutableCopy];
 		if(_notificationSettings == nil)
 		{
 			_notificationSettings = [NSMutableDictionary new];
