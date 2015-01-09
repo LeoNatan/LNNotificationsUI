@@ -213,6 +213,10 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 		{
 			_currentlyAnimating = NO;
 			
+			//Clean up notification window.
+			_notificationWindow.hidden = YES;
+			_notificationWindow = nil;
+			
 			[self _handleBannerCanChange];
 			
 			return;

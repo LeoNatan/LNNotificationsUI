@@ -25,8 +25,42 @@ extern NSString* const LNNotificationWasTappedNotification;
 
 @end
 
+@interface LNNotificationBannerWindow ()
+
+@property (nonatomic) BOOL ignoresAddedConstraints;
+
+@end
+
+@interface _LNWindowSizedView : UIView @end
+@implementation _LNWindowSizedView
+
+- (void)didMoveToWindow
+{
+	if(self.window == nil)
+	{
+		return;
+	}
+	
+	self.translatesAutoresizingMaskIntoConstraints = NO;
+	
+	BOOL oldVal = [(LNNotificationBannerWindow*)self.window ignoresAddedConstraints];
+	[(LNNotificationBannerWindow*)self.window setIgnoresAddedConstraints:NO];
+	
+	[self.window addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:@{@"view": self}]];
+	[self.window addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view": self}]];
+	
+	[(LNNotificationBannerWindow*)self.window setIgnoresAddedConstraints:oldVal];
+}
+
+@end
+
 @interface _LNStatusBarStylePreservingViewController : UIViewController @end
 @implementation _LNStatusBarStylePreservingViewController
+
+- (void)loadView
+{
+	self.view = [_LNWindowSizedView new];
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -267,5 +301,23 @@ extern NSString* const LNNotificationWasTappedNotification;
 	}
 }
 
+- (void)setHidden:(BOOL)hidden
+{
+	self.ignoresAddedConstraints = YES;
+	
+	[super setHidden:hidden];
+	
+	self.ignoresAddedConstraints = NO;
+}
+
+- (void)addConstraint:(NSLayoutConstraint *)constraint
+{
+	if(self.ignoresAddedConstraints)
+	{
+		return;
+	}
+	
+	[super addConstraint:constraint];
+}
 
 @end
