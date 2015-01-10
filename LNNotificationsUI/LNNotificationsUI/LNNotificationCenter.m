@@ -49,6 +49,8 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 	BOOL _currentlyAnimating;
 	
 	AVAudioPlayer* _currentAudioPlayer;
+	
+	id _orientationHandler;
 }
 
 + (instancetype)defaultCenter
@@ -75,9 +77,31 @@ NSString* const LNNotificationWasTappedNotification = @"LNNotificationWasTappedN
 		{
 			_notificationSettings = [NSMutableDictionary new];
 		}
+		
+		_orientationHandler = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillChangeStatusBarOrientationNotification object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note) {
+			
+			UIInterfaceOrientation newOrientation = [note.userInfo[UIApplicationStatusBarOrientationUserInfoKey] unsignedIntegerValue];
+			
+			if([UIDevice currentDevice].orientation == (UIDeviceOrientation)newOrientation)
+			{
+				return;
+			}
+		
+			//Fix Apple bug of rotations.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+			[[UIDevice currentDevice] performSelector:@selector(setOrientation:) withObject:(__bridge id)((void*)[note.userInfo[UIApplicationStatusBarOrientationUserInfoKey] unsignedIntegerValue])];
+#pragma clang diagnostic pop
+		}];
 	}
 	
 	return self;
+}
+
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:_orientationHandler];
+	_orientationHandler = nil;
 }
 
 - (LNNotificationBannerStyle)notificationsBannerStyle
