@@ -11,8 +11,6 @@
 
 @class LNNotification, LNNotificationAppSettings;
 
-extern NSString* const LNNotificationWasTappedNotification;
-
 typedef NS_ENUM(NSUInteger, LNNotificationBannerStyle) {
 	LNNotificationBannerStyleDark,
 	LNNotificationBannerStyleLight

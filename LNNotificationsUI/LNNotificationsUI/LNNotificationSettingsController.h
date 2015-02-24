@@ -13,4 +13,6 @@
  */
 @interface LNNotificationSettingsController : UITableViewController
 
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+
 @end

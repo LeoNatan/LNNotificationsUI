@@ -8,6 +8,26 @@
 
 #import "LNNotification.h"
 
+@interface LNNotificationAction ()
+
+@property (nonatomic, copy, readwrite) NSString* title;
+@property(nonatomic, copy, readwrite) void (^handler)(LNNotificationAction* action);
+
+@end
+
+@implementation LNNotificationAction
+
++ (instancetype)actionWithTitle:(NSString *)title handler:(void (^)(LNNotificationAction *))handler
+{
+	LNNotificationAction* action = [self new];
+	action.title = title;
+	action.handler = handler;
+	
+	return action;
+}
+
+@end
+
 @interface LNNotification ()
 
 @property (nonatomic, copy) NSString* appIdentifier;
@@ -58,46 +78,17 @@
 		self.icon = icon;
 		self.date = date;
 		self.displaysWithRelativeDateFormatting = YES;
-		self.alertAction = NSLocalizedString(@"View", @"");
 	}
 	
 	return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-	self = [super init];
-	
-	if(self)
-	{
-		self.title = [coder decodeObjectOfClass:[NSString class] forKey:@"title"];
-		self.message = [coder decodeObjectOfClass:[NSString class] forKey:@"message"];
-		self.icon = [coder decodeObjectOfClass:[NSString class] forKey:@"icon"];
-		self.date = [coder decodeObjectOfClass:[NSString class] forKey:@"date"];
-		self.displaysWithRelativeDateFormatting = [coder decodeBoolForKey:@"displaysWithRelativeDate"];
-		self.alertAction = [coder decodeObjectOfClass:[NSString class] forKey:@"alertAction"];
-		self.soundName = [coder decodeObjectOfClass:[NSString class] forKey:@"soundName"];
-	}
-	
-	return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-	[aCoder encodeObject:self.title forKey:@"title"];
-	[aCoder encodeObject:self.message forKey:@"message"];
-	[aCoder encodeObject:self.icon forKey:@"icon"];
-	[aCoder encodeObject:self.date forKey:@"date"];
-	[aCoder encodeBool:self.displaysWithRelativeDateFormatting forKey:@"displaysWithRelativeDate"];
-	[aCoder encodeObject:self.soundName forKey:@"soundName"];
-	[aCoder encodeObject:self.alertAction forKey:@"alertAction"];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
 	LNNotification* copy = [[LNNotification allocWithZone:zone] initWithTitle:self.title message:self.message icon:self.icon date:self.date];
 	copy.displaysWithRelativeDateFormatting = self.displaysWithRelativeDateFormatting;
-	copy.alertAction = self.alertAction;
+	copy.defaultAction = self.defaultAction;
+	copy.otherActions = self.otherActions;
 	copy.soundName = self.soundName;
 	
 	return copy;
@@ -112,7 +103,7 @@
 		[description appendFormat:@" appIdentifier: %@", self.appIdentifier];
 	}
 	
-	[description appendFormat:@" ; data: {\n\ttitle = %@\n\tmessage = %@\n\tdate = %@\n\tdisplaysWithRelativeDateFormatting = %@\n\talertAction = %@\n\tsoundName = %@\n}", self.title.description, self.message.description, self.date.description, self.displaysWithRelativeDateFormatting ? @"YES" : @"NO", self.alertAction.description, self.soundName.description];
+	[description appendFormat:@" ; data: {\n\ttitle = %@\n\tmessage = %@\n\tdate = %@\n\tdisplaysWithRelativeDateFormatting = %@\n\tsoundName = %@\n}", self.title.description, self.message.description, self.date.description, self.displaysWithRelativeDateFormatting ? @"YES" : @"NO", self.soundName.description];
 	
 	return description;
 }

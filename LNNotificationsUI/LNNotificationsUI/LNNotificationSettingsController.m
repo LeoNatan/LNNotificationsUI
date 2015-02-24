@@ -53,15 +53,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-	self = [super initWithCoder:aDecoder];
-	
-	self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
-	self.tableView.delegate = self;
-	self.tableView.dataSource = self;
-	
-	[self _commonInit];
-	
-	return self;
+	return [self init];
 }
 
 - (void)_commonInit
@@ -154,11 +146,15 @@
 	
 	UIImage* image = app[LNAppIconNameKey];
 	
-	CGSize itemSize = CGSizeMake(30, 30);
-	UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-	[image drawInRect:CGRectMake(0.0, 0.0, itemSize.width, itemSize.height)];
-	cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
+	CGSize imageSize = CGSizeMake(30, 30);
+	if(!CGSizeEqualToSize(image.size, imageSize))
+	{
+		UIGraphicsBeginImageContextWithOptions(imageSize, NO, image.scale);
+		CGContextSetInterpolationQuality(UIGraphicsGetCurrentContext(), kCGInterpolationHigh);
+		[image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+		cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+		UIGraphicsEndImageContext();
+	}
 	
 	cell.imageView.layer.masksToBounds = YES;
 	cell.imageView.layer.cornerRadius = 4.6875;

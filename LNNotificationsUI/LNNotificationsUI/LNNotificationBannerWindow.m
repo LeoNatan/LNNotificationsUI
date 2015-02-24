@@ -17,8 +17,6 @@ static const NSTimeInterval LNNotificationCutOffDuration = 2.5;
 
 static const CGFloat LNNotificationViewHeight = 68.0;
 
-extern NSString* const LNNotificationWasTappedNotification;
-
 @interface LNNotification ()
 
 @property (nonatomic, copy) NSDictionary* userInfo;
@@ -295,9 +293,9 @@ extern NSString* const LNNotificationWasTappedNotification;
 {
 	[self _dismissNotificationViewWithCompletionBlock:_pendingCompletionHandler force:YES];
 	
-	if(_notificationView.currentNotification != nil)
+	if(_notificationView.currentNotification != nil && _notificationView.currentNotification.defaultAction.handler != nil)
 	{
-		[[NSNotificationCenter defaultCenter] postNotificationName:LNNotificationWasTappedNotification object:_notificationView.currentNotification userInfo:_notificationView.currentNotification.userInfo];
+		_notificationView.currentNotification.defaultAction.handler(_notificationView.currentNotification.defaultAction);
 	}
 }
 
