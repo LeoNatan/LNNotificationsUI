@@ -127,6 +127,45 @@
 	}
 }
 
+- (NSString*)_settingsDescriptionForApp:(NSDictionary*)app
+{
+	if([app[LNNotificationsDisabledKey] boolValue] == YES)
+	{
+		return nil;
+	}
+	
+	NSMutableString* val = [NSMutableString new];
+	
+	if([app[LNAppSoundsKey] boolValue] == YES)
+	{
+		[val appendString:NSLocalizedString(@"Sounds", @"")];
+	}
+	
+	if([app[LNAppAlertStyleKey] unsignedIntegerValue] != LNNotificationAlertStyleNone)
+	{
+		if(val.length > 0)
+		{
+			[val appendString:@", "];
+		}
+		
+		if([app[LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleBanner)
+		{
+			[val appendString:NSLocalizedString(@"Banners", @"")];
+		}
+		else if([app[LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleAlert)
+		{
+			[val appendString:NSLocalizedString(@"Alerts", @"")];
+		}
+	}
+	
+	if(val.length == 0)
+	{
+		return nil;
+	}
+	
+	return val;
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"appDetailCell" forIndexPath:indexPath];
@@ -143,6 +182,7 @@
 	}
 	
 	cell.textLabel.text = app[LNAppNameKey];
+	cell.detailTextLabel.text = [self _settingsDescriptionForApp:app];
 	
 	UIImage* image = app[LNAppIconNameKey];
 	
