@@ -46,6 +46,16 @@
 	return self;
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	if(nibBundleOrNil == nil)
+	{
+		return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	}
+	
+	return [self init];
+}
+
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
 	return [self init];
@@ -53,7 +63,15 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-	return [self init];
+	self = [self init];
+	
+	self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
+	
+	[self _commonInit];
+	
+	return self;
 }
 
 - (void)_commonInit
