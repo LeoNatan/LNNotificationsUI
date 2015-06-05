@@ -11,6 +11,13 @@
 #import "LNNotificationAppSettings_Private.h"
 #import "LNNotificationsAppSettingsController.h"
 
+@interface LNNotificationSettingsController ()
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+
+@end
+
 @interface _LNDetailCell : UITableViewCell @end
 @implementation _LNDetailCell
 
@@ -48,7 +55,11 @@
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	return [self init];
+	self = [super initWithNibName:nil bundle:nibBundleOrNil];
+	
+	[self _commonInit];
+
+	return self;
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
@@ -58,7 +69,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-	self = [self init];
+	self = [super initWithCoder:aDecoder];
 	
 	self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
 	self.tableView.delegate = self;
