@@ -35,7 +35,18 @@
 @property (nonatomic) BOOL displaysWithRelativeDateFormatting;
 
 @property (nonatomic, copy) NSString* soundName;
+
+/**
+ The default action attached to the notification.
+ 
+ This action's handler is called when the user taps on the notification banned, and is the first button that appears when notifications are displayed as alerts.
+ */
 @property (nonatomic, strong) LNNotificationAction* defaultAction;
+/**
+ Additional actions attached to the notification.
+ 
+ If the notification has multiple actions, the order in which they appear in the array determines their order in the resulting notification displayed.
+ */
 @property (nonatomic, copy) NSArray* otherActions;
 
 @end

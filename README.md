@@ -11,7 +11,7 @@ See a video [here](https://vimeo.com/105395794).
 
 * Native look & feel
 * Support for notifications of multiple "applications"
-* Customizeable notifications
+* Customizable notifications
 * Different banner styles:
 
 <img src="./Screenshots/3.png" width="213px"/>&nbsp;
@@ -31,13 +31,17 @@ Drag the `LNNotificationsUI` project to your project, and add `LNNotificationsUI
 
 ## Using the Framework
 
+###Inclusion in Project
+
 First import the umbrella header file:
 
 ```objective-c
 #import <LNNotificationsUI/LNNotificationsUI.h>
 ```
 
-Before being able to post notifications, you need to register at least one "application" with the system. "Applications" are logical differenciators, each with its own identifier, name and icon. For example, a productivity app with an e-mail client and a calendar may register two applications, "Mail" and "Calendar" with different icons and default titles.
+###Registering Applications
+
+Before being able to post notifications, you need to register at least one application with the system. Applications provide a way to group notifications, each with its own identifier, name and icon and other settings. For example, a productivity app with an e-mail client and a calendar may register two applications, "Mail" and "Calendar" with different icons, and other more advanced settings, such calendar notifications appearing as alerts by default.
 
 ```objective-c
 [[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"mail_app_identifier" name:@"Mail" icon:[UIImage imageNamed:@"MailApp"] defaultSettings:LNNotificationDefaultAppSettings];
@@ -46,7 +50,9 @@ Before being able to post notifications, you need to register at least one "appl
 
 **Note:** For all available options for the default settings, take a look at the `LNNotificationAppSettings` class definition. `LNNotificationDefaultAppSettings` is provided as a convenience for default settings.
 
-Now the system is ready to post notifications. Create a notificaiton object, set the desired parameters and post it.
+###Displaying Notifications
+
+Now the system is ready to post notifications. Create a notification object, set the desired parameters and post it.
 
 ```objective-c
 LNNotification* notification = [LNNotification notificationWithMessage:@"You've Got Mail!"];
@@ -54,29 +60,28 @@ LNNotification* notification = [LNNotification notificationWithMessage:@"You've 
 [[LNNotificationCenter defaultCenter] presentNotification:notification forApplicationIdentifier:@"mail_app_identifier"];
 ```
 
-You can also pass a `userInfo` dictionary that will be passed when the user taps a notification:
-
-```
-[[LNNotificationCenter defaultCenter] presentNotification:notification forApplicationIdentifier:@"mail_app_identifier" userInfo: @{@"exampleKey": @"exampleValue"}];
-```
-
 **Note:** For all available notification properties, take a look at the `LNNotification` class definition.
 
-To listen to taps on notifications by the user, register to the ``LNNotificationWasTappedNotification`` notification. You can register for specific notification objects or for all, by passing `nil` as the object.
+###Notification Actions
 
-```objective-c
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWasTapped:) name:LNNotificationWasTappedNotification object:nil];
-```
-Use the `notification.object` to get the tapped `LNNotification` object.
+In addition to displaying notifications, you can associate actions with each notification. Each notification has a default action, as well as other actions that can be attached to the notification. When the user taps a notification or the appropriate button, the provided handler block is called.
 
-```objective-c
-- (void)notificationWasTapped:(NSNotification*)notification
-{
-	LNNotification* tappedNotification = notification.object;
-	
-	// Handle tap here.
-}
 ```
+LNNotification* notification = [LNNotification notificationWithMessage:@"Welcome to LNNotificationsUI!"];
+	notification.title = @"Hello World!";
+	notification.soundName = @"demo.aiff";
+	notification.defaultAction = [LNNotificationAction actionWithTitle:@"Default Action" handler:^(LNNotificationAction *action) {
+		//Handle default action
+	}];
+	notification.otherActions = @[[LNNotificationAction actionWithTitle:@"Other Action 1" handler:^(LNNotificationAction *action) {
+		//Handle other action here
+	}], [LNNotificationAction actionWithTitle:@"Other Action 2" handler:^(LNNotificationAction *action) {
+		//Handle other action here
+	}]];
+```
+**Note:** Currently, other actions are only available when notifications are presented as alerts. Tapping on banner notifications will call the default action handler.
+
+###Settings
 
 To display the notification settings view controller, create an instance of `LNNotificationSettingsController`, either in code or storyboard and display it. This view controller will display all registered apps, and will allow the user to select how notifications are presented to him. If only one app is registered, its settings will appear in this view controller. If there two or more apps registered, a list of apps will appear and selecting an app will show its settings.
 
