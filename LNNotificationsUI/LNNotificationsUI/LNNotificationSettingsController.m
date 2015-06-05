@@ -48,11 +48,6 @@
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	if(nibBundleOrNil == nil)
-	{
-		return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	}
-	
 	return [self init];
 }
 
