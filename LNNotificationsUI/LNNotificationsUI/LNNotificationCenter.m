@@ -52,7 +52,6 @@
 @interface LNNotification ()
 
 @property (nonatomic, copy) NSString* appIdentifier;
-@property (nonatomic, copy) NSDictionary* userInfo;
 
 @end
 
@@ -190,11 +189,6 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 
 - (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier
 {
-	[self presentNotification:notification forApplicationIdentifier:appIdentifier userInfo:nil];
-}
-
-- (void)presentNotification:(LNNotification*)notification forApplicationIdentifier:(NSString*)appIdentifier userInfo:(NSDictionary*)userInfo
-{
 	NSAssert(_applicationMapping[appIdentifier] != nil, @"Unrecognized app identifier: %@. The app must be registered with the notification center before attempting presentation of notifications for it.", appIdentifier);
 	NSParameterAssert(notification.message != nil);
 	
@@ -214,7 +208,6 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 		pendingNotification.title = notification.title ? notification.title : _applicationMapping[appIdentifier][LNAppNameKey];
 		pendingNotification.icon = notification.icon ? notification.icon : _applicationMapping[appIdentifier][LNAppIconNameKey];
 		pendingNotification.appIdentifier = appIdentifier;
-		pendingNotification.userInfo = userInfo;
 		
 		if([_notificationSettings[appIdentifier][LNAppAlertStyleKey] unsignedIntegerValue] == LNNotificationAlertStyleAlert)
 		{
