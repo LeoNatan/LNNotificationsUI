@@ -31,7 +31,7 @@ Drag the `LNNotificationsUI` project to your project, and add `LNNotificationsUI
 
 ## Using the Framework
 
-###Inclusion in Project
+###Project Integration
 
 First import the umbrella header file:
 
