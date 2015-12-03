@@ -165,19 +165,19 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 		[self layoutIfNeeded];
 		
 		[UIView animateWithDuration:LNNotificationAnimationDuration delay:delay usingSpringWithDamping:500 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-			_topConstraint.constant = 0;
+			self->_topConstraint.constant = 0;
 			[self layoutIfNeeded];
 		} completion:^(BOOL finished) {
-			_lastShowDate = [NSDate date];
-			_notificationViewShown = YES;
+			self->_lastShowDate = [NSDate date];
+			self->_notificationViewShown = YES;
 			
-			_pendingCompletionHandler = completionBlock;
+			self->_pendingCompletionHandler = completionBlock;
 			
 			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(LNNotificationCutOffDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-				if(_pendingCompletionHandler)
+				if(self->_pendingCompletionHandler)
 				{
-					void (^prevPendingCompletionHandler)() = _pendingCompletionHandler;
-					_pendingCompletionHandler = nil;
+					void (^prevPendingCompletionHandler)() = self->_pendingCompletionHandler;
+					self->_pendingCompletionHandler = nil;
 					prevPendingCompletionHandler();
 				}
 			});
@@ -198,19 +198,19 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 		
 		[UIView animateWithDuration:0.75 * LNNotificationAnimationDuration delay:delay usingSpringWithDamping:500 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
 			frame.origin.y = 0;
-			_notificationView.notificationContentView.frame = frame;
+			self->_notificationView.notificationContentView.frame = frame;
 			snapshot.alpha = 0;
 		} completion:^(BOOL finished) {
 			[snapshot removeFromSuperview];
-			_lastShowDate = [NSDate date];
+			self->_lastShowDate = [NSDate date];
 			
-			_pendingCompletionHandler = completionBlock;
+			self->_pendingCompletionHandler = completionBlock;
 			
 			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(LNNotificationCutOffDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-				if(_pendingCompletionHandler)
+				if(self->_pendingCompletionHandler)
 				{
-					void (^prevPendingCompletionHandler)() = _pendingCompletionHandler;
-					_pendingCompletionHandler = nil;
+					void (^prevPendingCompletionHandler)() = self->_pendingCompletionHandler;
+					self->_pendingCompletionHandler = nil;
 					prevPendingCompletionHandler();
 				}
 			});
@@ -247,21 +247,21 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 	[self layoutIfNeeded];
 	
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-		_notificationViewShown = NO;
+		self->_notificationViewShown = NO;
 	});
 	
 	[UIView animateWithDuration:LNNotificationAnimationDuration delay:delay usingSpringWithDamping:500 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-		_topConstraint.constant = -LNNotificationViewHeight;
+		self->_topConstraint.constant = -LNNotificationViewHeight;
 		[self layoutIfNeeded];
 	} completion:^(BOOL finished) {
-		_lastShowDate = nil;
-		_notificationViewShown = NO;
-		[_notificationView configureForNotification:nil];
+		self->_lastShowDate = nil;
+		self->_notificationViewShown = NO;
+		[self->_notificationView configureForNotification:nil];
 		
-		if(_pendingCompletionHandler)
+		if(self->_pendingCompletionHandler)
 		{
-			void (^prevPendingCompletionHandler)() = _pendingCompletionHandler;
-			_pendingCompletionHandler = nil;
+			void (^prevPendingCompletionHandler)() = self->_pendingCompletionHandler;
+			self->_pendingCompletionHandler = nil;
 			prevPendingCompletionHandler();
 		}
 	}];

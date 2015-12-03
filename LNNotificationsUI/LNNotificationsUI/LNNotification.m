@@ -57,6 +57,11 @@
 	return [[LNNotification alloc] initWithTitle:title message:message icon:icon date:date];
 }
 
+- (instancetype)init {
+
+	return [self initWithMessage:nil];
+}
+
 - (instancetype)initWithMessage:(NSString*)message
 {
 	return [self initWithTitle:nil message:message icon:nil date:[NSDate date]];
