@@ -34,7 +34,7 @@
 		390001BB19B9133600EA4BF2 /* LNNotificationBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationBannerView.m; sourceTree = "<group>"; };
 		391D31B419F9C3C40065E9D3 /* LNNotificationsAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationsAppSettingsController.h; sourceTree = "<group>"; };
 		391D31B519F9C3C40065E9D3 /* LNNotificationsAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationsAppSettingsController.m; sourceTree = "<group>"; };
-		3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LNNotificationsUIAssets.xcassets; sourceTree = "<group>"; };
+		3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LNNotificationsUIAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		39883C7019CB756D002499F5 /* LNNotificationSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationSettingsController.h; sourceTree = "<group>"; };
 		39883C7119CB756D002499F5 /* LNNotificationSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNotificationSettingsController.m; sourceTree = "<group>"; };
 		39883C7419CB79C1002499F5 /* LNNotificationAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationAppSettings.h; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		39D646E219E5D7460069C197 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		39FC4F8319B8EFB400E45E37 /* LNNotificationsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LNNotificationsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FC4F8719B8EFB400E45E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39FC4F8819B8EFB400E45E37 /* LNNotificationsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNNotificationsUI.h; sourceTree = "<group>"; };
+		39FC4F8819B8EFB400E45E37 /* LNNotificationsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LNNotificationsUI.h; path = LNNotificationsUI/LNNotificationsUI.h; sourceTree = "<group>"; };
 		39FDB3F119CB9A97001E5134 /* LNNotificationAppSettings_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNotificationAppSettings_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,8 +65,7 @@
 		39FC4F7919B8EFB400E45E37 = {
 			isa = PBXGroup;
 			children = (
-				39D646E219E5D7460069C197 /* AVFoundation.framework */,
-				3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */,
+				39FC4F8819B8EFB400E45E37 /* LNNotificationsUI.h */,
 				39FC4F8519B8EFB400E45E37 /* LNNotificationsUI */,
 				39FC4F8419B8EFB400E45E37 /* Products */,
 			);
@@ -83,7 +82,8 @@
 		39FC4F8519B8EFB400E45E37 /* LNNotificationsUI */ = {
 			isa = PBXGroup;
 			children = (
-				39FC4F8819B8EFB400E45E37 /* LNNotificationsUI.h */,
+				3976DDB519CCA37F00053EEF /* LNNotificationsUIAssets.xcassets */,
+				39D646E219E5D7460069C197 /* AVFoundation.framework */,
 				39CA2E3019B8F2E7009C1792 /* LNNotificationCenter.h */,
 				39CA2E3119B8F2E7009C1792 /* LNNotificationCenter.m */,
 				39CA2E3419B8F364009C1792 /* LNNotification.h */,
@@ -158,7 +158,7 @@
 		39FC4F7A19B8EFB400E45E37 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Leo Natan";
 				TargetAttributes = {
 					39FC4F8219B8EFB400E45E37 = {
@@ -232,6 +232,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -302,8 +303,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = LNNotificationsUI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LeoNatan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -319,8 +319,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = LNNotificationsUI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LeoNatan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

@@ -31,9 +31,9 @@ typedef NS_ENUM(NSUInteger, LNNotificationAlertStyle) {
 @property (nonatomic) LNNotificationAlertStyle alertStyle;
 @property (nonatomic) BOOL soundEnabled;
 
-@end
-
 /**
  The default app settings for notifications.
  */
-extern LNNotificationAppSettings *const LNNotificationDefaultAppSettings;
++ (LNNotificationAppSettings*)defaultNotificationAppSettings;
+
+@end

@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import <LNNotificationsUI/LNNotificationsUI.h>
+
+@import LNNotificationsUI;
 
 @interface ViewController ()
 
@@ -61,9 +62,9 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"123" name:@"Notifications Demp App 1" icon:[UIImage imageNamed:@"DemoApp1Icon"] defaultSettings:LNNotificationDefaultAppSettings];
-	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"456" name:@"Notifications Demp App 2" icon:[UIImage imageNamed:@"DemoApp2Icon"] defaultSettings:LNNotificationDefaultAppSettings];
-	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"789" name:@"Notifications Demp App 3" icon:[UIImage imageNamed:@"DemoApp3Icon"] defaultSettings:LNNotificationDefaultAppSettings];
+	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"123" name:@"Notifications Demo App 1" icon:[UIImage imageNamed:@"DemoApp1Icon"] defaultSettings:[LNNotificationAppSettings defaultNotificationAppSettings]];
+	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"456" name:@"Notifications Demo App 2" icon:[UIImage imageNamed:@"DemoApp2Icon"] defaultSettings:[LNNotificationAppSettings defaultNotificationAppSettings]];
+	[[LNNotificationCenter defaultCenter] registerApplicationWithIdentifier:@"789" name:@"Notifications Demo App 3" icon:[UIImage imageNamed:@"DemoApp3Icon"] defaultSettings:[LNNotificationAppSettings defaultNotificationAppSettings]];
 	
 	LNNotification* notification = [LNNotification notificationWithMessage:@"Welcome to LNNotificationsUI!"];
 	notification.title = @"Hello World!";

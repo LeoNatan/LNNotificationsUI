@@ -84,7 +84,7 @@
 	rv.translatesAutoresizingMaskIntoConstraints = NO;
 	[rv setContentHuggingPriority:1000 forAxis:UILayoutConstraintAxisHorizontal];
 	[rv setContentHuggingPriority:1000 forAxis:UILayoutConstraintAxisVertical];
-	[rv setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+	[rv setImage:[UIImage imageNamed:imageName inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
 	[rv addTarget:self action:@selector(_alertStyleButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
 	return rv;

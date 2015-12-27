@@ -14,19 +14,20 @@ NSString *const LNAppSoundsKey = @"LNNotificationsSoundEnabledKey";
 NSString *const LNAppNameKey = @"LNNotificationCenterAppNameKey";
 NSString *const LNAppIconNameKey = @"LNNotificationCenterAppIconKey";
 
-LNNotificationAppSettings *const LNNotificationDefaultAppSettings;
+static LNNotificationAppSettings* LNNotificationDefaultAppSettings;
 
 @implementation LNNotificationAppSettings
 
-+ (void)load
++ (LNNotificationAppSettings*)defaultNotificationAppSettings
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		LNNotificationAppSettings* __strong* rv = (LNNotificationAppSettings**)&LNNotificationDefaultAppSettings;
-		*rv = [LNNotificationAppSettings new];
-		(*rv).alertStyle = LNNotificationAlertStyleBanner;
-		(*rv).soundEnabled = YES;
+		LNNotificationDefaultAppSettings = [LNNotificationAppSettings new];
+		LNNotificationDefaultAppSettings.alertStyle = LNNotificationAlertStyleBanner;
+		LNNotificationDefaultAppSettings.soundEnabled = YES;
 	});
+	
+	return LNNotificationDefaultAppSettings;
 }
 
 @end

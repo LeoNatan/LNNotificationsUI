@@ -167,7 +167,7 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 	
 	if(icon == nil)
 	{
-		icon = [UIImage imageNamed:@"LNNotificationsUIDefaultAppIcon"];
+		icon = [UIImage imageNamed:@"LNNotificationsUIDefaultAppIcon" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
 	}
 	
 	_applicationMapping[appIdentifier] = @{LNAppNameKey: name, LNAppIconNameKey: icon};
