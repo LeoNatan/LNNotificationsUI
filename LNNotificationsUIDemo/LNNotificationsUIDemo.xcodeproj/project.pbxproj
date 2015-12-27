@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		392230AD1C3090390070D863 /* LNNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936B7EA19B90357007A3F6B /* LNNotificationsUI.framework */; };
-		392230AE1C3090390070D863 /* LNNotificationsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3936B7EA19B90357007A3F6B /* LNNotificationsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3936B7EB19B90366007A3F6B /* LNNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936B7EA19B90357007A3F6B /* LNNotificationsUI.framework */; };
+		392230B31C3091E90070D863 /* LNNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936B7EA19B90357007A3F6B /* LNNotificationsUI.framework */; };
+		392230B41C3091E90070D863 /* LNNotificationsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3936B7EA19B90357007A3F6B /* LNNotificationsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39867B7E19E5E8D300664D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B66DBE19B9020500BED640 /* Main.storyboard */; };
 		39B66DB719B9020500BED640 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B66DB619B9020500BED640 /* main.m */; };
 		39B66DBA19B9020500BED640 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B66DB919B9020500BED640 /* AppDelegate.m */; };
@@ -26,6 +25,13 @@
 			remoteGlobalIDString = 39FC4F8219B8EFB400E45E37;
 			remoteInfo = LNNotificationsUI;
 		};
+		392230B51C3091E90070D863 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3936B7E519B90357007A3F6B /* LNNotificationsUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 39FC4F8219B8EFB400E45E37;
+			remoteInfo = LNNotificationsUI;
+		};
 		3936B7E919B90357007A3F6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3936B7E519B90357007A3F6B /* LNNotificationsUI.xcodeproj */;
@@ -33,23 +39,16 @@
 			remoteGlobalIDString = 39FC4F8319B8EFB400E45E37;
 			remoteInfo = LNNotificationsUI;
 		};
-		3976DDB719CCA72B00053EEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3936B7E519B90357007A3F6B /* LNNotificationsUI.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 39FC4F8219B8EFB400E45E37;
-			remoteInfo = LNNotificationsUI;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		392230B11C30903A0070D863 /* Embed Frameworks */ = {
+		392230B71C3091E90070D863 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				392230AE1C3090390070D863 /* LNNotificationsUI.framework in Embed Frameworks */,
+				392230B41C3091E90070D863 /* LNNotificationsUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,8 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3936B7EB19B90366007A3F6B /* LNNotificationsUI.framework in Frameworks */,
-				392230AD1C3090390070D863 /* LNNotificationsUI.framework in Frameworks */,
+				392230B31C3091E90070D863 /* LNNotificationsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,13 +140,13 @@
 				39B66DAD19B9020500BED640 /* Sources */,
 				39B66DAE19B9020500BED640 /* Frameworks */,
 				39B66DAF19B9020500BED640 /* Resources */,
-				392230B11C30903A0070D863 /* Embed Frameworks */,
+				392230B71C3091E90070D863 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3976DDB819CCA72B00053EEF /* PBXTargetDependency */,
 				392230B01C3090390070D863 /* PBXTargetDependency */,
+				392230B61C3091E90070D863 /* PBXTargetDependency */,
 			);
 			name = LNNotificationsUIDemo;
 			productName = LNNotificationsUIDemo;
@@ -236,10 +234,10 @@
 			name = LNNotificationsUI;
 			targetProxy = 392230AF1C3090390070D863 /* PBXContainerItemProxy */;
 		};
-		3976DDB819CCA72B00053EEF /* PBXTargetDependency */ = {
+		392230B61C3091E90070D863 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LNNotificationsUI;
-			targetProxy = 3976DDB719CCA72B00053EEF /* PBXContainerItemProxy */;
+			targetProxy = 392230B51C3091E90070D863 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

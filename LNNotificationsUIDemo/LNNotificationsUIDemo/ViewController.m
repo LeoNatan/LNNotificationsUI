@@ -17,7 +17,7 @@
 @implementation ViewController
 
 - (IBAction)queueMoreButtonTapped:(id)sender {
-	LNNotification* notification = [LNNotification notificationWithMessage:@"Looks just like the native iOS 7 and iOS 8 banner notifications!"];
+	LNNotification* notification = [LNNotification notificationWithMessage:@"Looks just like the native iOS 8 and iOS 9 banner notifications!"];
 	notification.title = @"First Notification";
 	notification.date = [[NSDate date] dateByAddingTimeInterval:-60 * 60 * 24];
 	notification.soundName = @"demo.aiff";
