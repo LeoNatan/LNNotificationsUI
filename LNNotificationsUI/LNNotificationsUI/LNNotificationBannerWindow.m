@@ -65,6 +65,11 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 	return [[UIApplication sharedApplication] statusBarStyle];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+	return [[UIApplication sharedApplication] isStatusBarHidden];
+}
+
 @end
 
 @implementation LNNotificationBannerWindow
