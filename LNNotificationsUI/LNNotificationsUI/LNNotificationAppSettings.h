@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Leo Natan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 typedef NS_ENUM(NSUInteger, LNNotificationAlertStyle) {
 	/**

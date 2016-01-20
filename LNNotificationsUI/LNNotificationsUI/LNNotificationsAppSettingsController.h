@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 Leo Natan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import Foundation;
 
 @interface LNNotificationsAppSettingsController : UITableViewController
 

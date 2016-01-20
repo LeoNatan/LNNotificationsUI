@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 Leo Natan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+
 #import <LNNotificationsUI/LNNotification.h>
 #import <LNNotificationsUI/LNNotificationCenter.h>
 #import <LNNotificationsUI/LNNotificationAppSettings.h>
