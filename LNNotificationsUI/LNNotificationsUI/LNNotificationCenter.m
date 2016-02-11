@@ -177,7 +177,7 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 	}
 }
 
-- (void)clearPendingNotificationForApplictionIdentifier:(NSString*)appIdentifier;
+- (void)clearPendingNotificationsForApplicationIdentifier:(NSString*)appIdentifier;
 {
 	[_pendingNotifications filterUsingPredicate:[NSPredicate predicateWithFormat:@"appIdentifier != %@", appIdentifier]];
 }
