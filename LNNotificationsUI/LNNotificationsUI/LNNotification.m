@@ -44,35 +44,35 @@
 
 + (instancetype)notificationWithMessage:(NSString*)message
 {
-	return [[LNNotification alloc] initWithTitle:nil message:message icon:nil date:[NSDate date]];
+	return [[LNNotification alloc] initWithMessage:message title:nil icon:nil date:[NSDate date]];
 }
 
-+ (instancetype)notificationWithTitle:(NSString*)title message:(NSString*)message
++ (instancetype)notificationWithMessage:(NSString*)message title:(NSString*)title
 {
-	return [[LNNotification alloc] initWithTitle:title message:message icon:nil date:[NSDate date]];
+	return [[LNNotification alloc] initWithMessage:message title:title icon:nil date:[NSDate date]];
 }
 
-+ (instancetype)notificationWithTitle:(NSString*)title message:(NSString*)message icon:(UIImage*)icon date:(NSDate*)date
++ (instancetype)notificationWithMessage:(NSString*)message title:(NSString*)title icon:(UIImage*)icon date:(NSDate*)date
 {
-	return [[LNNotification alloc] initWithTitle:title message:message icon:icon date:date];
+	return [[LNNotification alloc] initWithMessage:message title:title icon:icon date:[NSDate date]];
 }
 
 - (instancetype)init
 {
-    return [self initWithTitle:nil message:nil icon:nil date:[NSDate date]];
+	return [self initWithMessage:nil title:nil icon:nil date:[NSDate date]];
 }
 
 - (instancetype)initWithMessage:(NSString*)message
 {
-	return [self initWithTitle:nil message:message icon:nil date:[NSDate date]];
+	return [self initWithMessage:message title:nil icon:nil date:[NSDate date]];
 }
 
-- (instancetype)initWithTitle:(NSString*)title message:(NSString*)message
+- (instancetype)initWithMessage:(NSString *)message title:(NSString *)title
 {
-	return [self initWithTitle:title message:message icon:nil date:[NSDate date]];
+	return [self initWithMessage:message title:title icon:nil date:[NSDate date]];
 }
 
-- (instancetype)initWithTitle:(NSString*)title message:(NSString*)message icon:(UIImage*)icon date:(NSDate*)date
+- (instancetype)initWithMessage:(NSString *)message title:(NSString *)title icon:(UIImage *)icon date:(NSDate *)date
 {
 	self = [super init];
 	
@@ -90,7 +90,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-	LNNotification* copy = [[LNNotification allocWithZone:zone] initWithTitle:self.title message:self.message icon:self.icon date:self.date];
+	LNNotification* copy = [[LNNotification allocWithZone:zone] initWithMessage:self.message title:self.title icon:self.icon date:self.date];
 	copy.displaysWithRelativeDateFormatting = self.displaysWithRelativeDateFormatting;
 	copy.defaultAction = self.defaultAction;
 	copy.otherActions = self.otherActions;
