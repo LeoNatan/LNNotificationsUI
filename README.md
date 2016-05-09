@@ -29,6 +29,14 @@ See a video [here](https://vimeo.com/105395794).
 
 ## Adding to Your Project
 
+###Carthage
+
+Add the following to your Cartfile:
+
+```github "LeoNatan/LNPopupController"```
+
+###Manual
+
 Drag the `LNNotificationsUI.xcodeproj` project to your project, and add `LNNotificationsUI.framework` to **Embedded Binaries** in your project target's **General** tab. Xcode should sort everything else on its own.
 
 ## Using the Framework
