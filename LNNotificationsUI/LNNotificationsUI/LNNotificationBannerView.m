@@ -273,7 +273,7 @@ static const CGFloat LNNotificationRelativeLabelCollapse = 5.0 * 60.0;
 {
 	[super layoutSubviews];
 	
-	_messageLabel.preferredMaxLayoutWidth = self.bounds.size.width - (15 + _appIcon.frame.size.width + 8 + 15);
+	_messageLabel.preferredMaxLayoutWidth = self.bounds.size.width - (15 + _appIcon.frame.size.width + 11 + 15);
 }
 
 - (void)configureForNotification:(LNNotification*)notification
