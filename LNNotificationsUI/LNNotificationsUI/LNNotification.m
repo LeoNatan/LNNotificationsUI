@@ -54,7 +54,7 @@
 
 + (instancetype)notificationWithMessage:(NSString*)message title:(NSString*)title icon:(UIImage*)icon date:(NSDate*)date
 {
-	return [[LNNotification alloc] initWithMessage:message title:title icon:icon date:[NSDate date]];
+	return [[LNNotification alloc] initWithMessage:message title:title icon:icon date:date];
 }
 
 - (instancetype)init
