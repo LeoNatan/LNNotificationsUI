@@ -76,7 +76,7 @@ LNNotification* notification = [LNNotification notificationWithMessage:@"You've 
 
 In addition to displaying notifications, you can associate actions with each notification. Each notification has a default action, as well as other actions that can be attached to the notification. When the user taps a notification or the appropriate button, the provided handler block is called.
 
-```
+```objective-c
 LNNotification* notification = [LNNotification notificationWithMessage:@"Welcome to LNNotificationsUI!"];
 	notification.title = @"Hello World!";
 	notification.soundName = @"demo.aiff";
