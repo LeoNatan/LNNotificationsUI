@@ -33,7 +33,7 @@ See a video [here](https://vimeo.com/105395794).
 
 Add the following to your Cartfile:
 
-```github "LeoNatan/LNPopupController"```
+```github "LeoNatan/LNNotificationsUI"```
 
 ###Manual
 
