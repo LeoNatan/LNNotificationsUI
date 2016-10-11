@@ -1,3 +1,9 @@
+# **Deprecation Notice**
+
+This framework is **now deprecated with the arrival of iOS 10**. With iOS 10, you can now **display native system notifications inside your app**. I suggest migrating to Apple's new API going forward. This framework can remain useful for iOS 8 & 9 support, but it will no longer be updated with new features.
+
+----
+
 # LNNotificationsUI
 
 `LNNotificationsUI` is a framework for displaying notifications similar to Apple's iOS 8 and iOS 9 notifications. It is meant to complement the native look and feel, by providing a pixel-accurate (as much as possible) recreation of the notifications.
