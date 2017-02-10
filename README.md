@@ -47,7 +47,7 @@ Drag the `LNNotificationsUI.xcodeproj` project to your project, and add `LNNotif
 
 ###CocoaPods
 
-CocoaPods is not supported. There are many reasons for this. Instead of CocoaPods, use Carthage. You can continue using CocoaPods for for your other dependencies and Carthage for `LNPopupController`.
+CocoaPods is not supported. There are many reasons for this. Instead of CocoaPods, use Carthage. You can continue using CocoaPods for for your other dependencies and Carthage for `LNNotificationsUI`.
 
 ## Using the Framework
 
