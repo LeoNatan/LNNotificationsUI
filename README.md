@@ -35,23 +35,23 @@ See a video [here](https://vimeo.com/105395794).
 
 ## Adding to Your Project
 
-###Carthage
+### Carthage
 
 Add the following to your Cartfile:
 
 ```github "LeoNatan/LNNotificationsUI"```
 
-###Manual
+### Manual
 
 Drag the `LNNotificationsUI.xcodeproj` project to your project, and add `LNNotificationsUI.framework` to **Embedded Binaries** in your project target's **General** tab. Xcode should sort everything else on its own.
 
-###CocoaPods
+### CocoaPods
 
 CocoaPods is not supported. There are many reasons for this. Instead of CocoaPods, use Carthage. You can continue using CocoaPods for for your other dependencies and Carthage for `LNNotificationsUI`.
 
 ## Using the Framework
 
-###Project Integration
+### Project Integration
 
 First import the umbrella header file:
 
@@ -59,7 +59,7 @@ First import the umbrella header file:
 @import LNNotificationsUI;
 ```
 
-###Registering Sub-applications
+### Registering Sub-applications
 
 Before being able to post notifications, you need to register at least one sub-application with the system. Sub-applications provide a way to group notifications, each with its own identifier, name and icon and other settings. For example, a productivity app with an e-mail client and a calendar may register two sub-applications, "Mail" and "Calendar", with different icons and other more advanced settings, such calendar notifications appearing as alerts by default.
 
@@ -70,7 +70,7 @@ Before being able to post notifications, you need to register at least one sub-a
 
 **Note:** For all available options for the default settings, take a look at the `LNNotificationAppSettings` class definition. `+ [LNNotificationAppSettings defaultNotificationAppSettings]` is provided as a convenience for obtaining the default settings.
 
-###Displaying Notifications
+### Displaying Notifications
 
 Create a notification object, set the desired parameters and post it.
 
@@ -81,7 +81,7 @@ LNNotification* notification = [LNNotification notificationWithMessage:@"You've 
 
 **Note:** For all available notification properties, take a look at the `LNNotification` class definition.
 
-###Notification Actions
+### Notification Actions
 
 In addition to displaying notifications, you can associate actions with each notification. Each notification has a default action, as well as other actions that can be attached to the notification. When the user taps a notification or the appropriate button, the provided handler block is called.
 
@@ -100,6 +100,6 @@ notification.otherActions = @[[LNNotificationAction actionWithTitle:@"Other Acti
 ```
 **Note:** Currently, other actions are only available when notifications are presented as alerts. Tapping on banner notifications will call the default action handler.
 
-###Settings
+### Settings
 
 To display the notification settings view controller, create an instance of `LNNotificationSettingsController`, either in code or storyboard and present it. This view controller will display all registered sub-applications, and will allow the user to select how notifications are presented to him. If only one sub-application is registered, its settings will appear in this view controller. If there two or more sub-applications registered, a list containing each sub-application will appear and and the user will be able to select modify settings seperately for each sub-application.
