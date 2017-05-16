@@ -252,7 +252,7 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 	_currentlyAnimating = YES;
 	
 	void(^block)() = ^ {
-		_currentlyAnimating = NO;
+		self->_currentlyAnimating = NO;
 		
 		[self _handleBannerCanChange];
 		

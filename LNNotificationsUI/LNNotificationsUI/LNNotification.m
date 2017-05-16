@@ -62,6 +62,11 @@
 	return [self initWithMessage:nil title:nil icon:nil date:[NSDate date]];
 }
 
+- (instancetype)init {
+
+	return [self initWithMessage:nil];
+}
+
 - (instancetype)initWithMessage:(NSString*)message
 {
 	return [self initWithMessage:message title:nil icon:nil date:[NSDate date]];
