@@ -248,6 +248,8 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 	[_notificationView.layer removeAllAnimations];
 	
 	_pendingCompletionHandler = completionBlock;
+    
+    [LNNotificationCenter.defaultCenter stopAudioPlayerOnDismiss];
 	
 	_topConstraint.constant = 0;
 	[self layoutIfNeeded];
