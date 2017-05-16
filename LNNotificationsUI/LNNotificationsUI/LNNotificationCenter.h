@@ -47,4 +47,9 @@ typedef NS_ENUM(NSUInteger, LNNotificationBannerStyle) {
  */
 - (void)clearAllPendingNotifications;
 
+/**
+ Stop audio player on dismiss
+ */
+- (void) stopAudioPlayerOnDismiss;
+
 @end

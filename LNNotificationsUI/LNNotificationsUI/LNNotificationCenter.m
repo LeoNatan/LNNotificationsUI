@@ -337,9 +337,17 @@ static NSString *const _LNSettingsKey = @"LNNotificationSettingsKey";
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-	[_currentAudioPlayer stop];
-	_currentAudioPlayer = nil;
+	[player stop];
+	player = nil;
 	[[AVAudioSession sharedInstance] setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
 }
+
+- (void) stopAudioPlayerOnDismiss
+{
+    if(_currentAudioPlayer != nil) {
+        [self audioPlayerDidFinishPlaying:_currentAudioPlayer successfully:false];
+    }
+}
+
 
 @end
