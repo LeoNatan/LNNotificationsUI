@@ -16,7 +16,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame style:(LNNotificationBannerStyle)bannerStyle;
 
-- (void)presentNotification:(LNNotification*)notification completionBlock:(void(^)())completionBlock;
-- (void)dismissNotificationViewWithCompletionBlock:(void(^)())completionBlock;
+- (void)presentNotification:(LNNotification*)notification completionBlock:(void(^)(void))completionBlock;
+- (void)dismissNotificationViewWithCompletionBlock:(void(^)(void))completionBlock;
 
 @end
