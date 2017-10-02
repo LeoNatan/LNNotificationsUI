@@ -83,7 +83,7 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 	
 	NSLayoutConstraint* _topConstraint;
 	
-	void (^_pendingCompletionHandler)();
+	void (^_pendingCompletionHandler)(void);
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -144,7 +144,7 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 	return _notificationViewShown;
 }
 
-- (void)presentNotification:(LNNotification *)notification completionBlock:(void (^)())completionBlock
+- (void)presentNotification:(LNNotification *)notification completionBlock:(void (^)(void))completionBlock
 {
 	NSDate* targetDate;
  
@@ -182,7 +182,7 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(LNNotificationCutOffDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 				if(_pendingCompletionHandler)
 				{
-					void (^prevPendingCompletionHandler)() = _pendingCompletionHandler;
+					void (^prevPendingCompletionHandler)(void) = _pendingCompletionHandler;
 					_pendingCompletionHandler = nil;
 					prevPendingCompletionHandler();
 				}
@@ -215,7 +215,7 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(LNNotificationCutOffDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 				if(_pendingCompletionHandler)
 				{
-					void (^prevPendingCompletionHandler)() = _pendingCompletionHandler;
+					void (^prevPendingCompletionHandler)(void) = _pendingCompletionHandler;
 					_pendingCompletionHandler = nil;
 					prevPendingCompletionHandler();
 				}
@@ -224,12 +224,12 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 	}
 }
 
-- (void)dismissNotificationViewWithCompletionBlock:(void (^)())completionBlock
+- (void)dismissNotificationViewWithCompletionBlock:(void (^)(void))completionBlock
 {
 	[self _dismissNotificationViewWithCompletionBlock:completionBlock force:NO];
 }
 
-- (void)_dismissNotificationViewWithCompletionBlock:(void (^)())completionBlock force:(BOOL)forced
+- (void)_dismissNotificationViewWithCompletionBlock:(void (^)(void))completionBlock force:(BOOL)forced
 {
 	if(_notificationViewShown == NO)
 	{
@@ -266,7 +266,7 @@ static const CGFloat LNNotificationViewHeight = 68.0;
 		
 		if(_pendingCompletionHandler)
 		{
-			void (^prevPendingCompletionHandler)() = _pendingCompletionHandler;
+			void (^prevPendingCompletionHandler)(void) = _pendingCompletionHandler;
 			_pendingCompletionHandler = nil;
 			prevPendingCompletionHandler();
 		}
